@@ -7,6 +7,7 @@
 
 
 
+
     <meta property="og:type" content="website">
 <meta property="og:title" content="想飞的猪猪">
 <meta property="og:url" content="https://flyingpigqaq.github.io/tags/nexus/index.html">
@@ -74,6 +75,10 @@
 
     
     
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
     
 
 
@@ -167,14 +172,14 @@
 <h4 id="3-上传依赖到远程代码库"><a href="#3-上传依赖到远程代码库" class="headerlink" title="3. 上传依赖到远程代码库"></a>3. 上传依赖到远程代码库</h4><blockquote>
 <p>注意：<strong>不能将jar文件或者pom文件指定为本地代码仓库的文件，否则会报错Cannot deploy artifact from the local repository。具体原因待查</strong>  </p>
 </blockquote>
-<h5 id="上传单个依赖到远程代码库"><a href="#上传单个依赖到远程代码库" class="headerlink" title="- 上传单个依赖到远程代码库"></a>- 上传单个依赖到远程代码库</h5><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span>第一种方式</span><br><span class="line">mvn deploy:deploy-file -DgroupId=mysql   -DartifactId=mysql-connector-java   -Dversion=5.1.45   -Dpackaging=jar   -Dfile=/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.jar   -DrepositoryId=sinosoft   -Durl=http://10.1.105.169:8081/repository/maven-releases/</span><br><span class="line"><span class="hljs-meta">#</span>第二种方式</span><br><span class="line">mvn deploy:deploy-file -Durl=http://10.1.105.169:8081/repository/maven-releases/ -Dfile="/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.jar" -DgeneratePom=false -DpomFile="/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.pom"</span><br></pre></td></tr></table></figure>
+<h5 id="上传单个依赖到远程代码库"><a href="#上传单个依赖到远程代码库" class="headerlink" title="- 上传单个依赖到远程代码库"></a>- 上传单个依赖到远程代码库</h5><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">第一种方式</span></span><br><span class="line">mvn deploy:deploy-file -DgroupId=mysql   -DartifactId=mysql-connector-java   -Dversion=5.1.45   -Dpackaging=jar   -Dfile=/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.jar   -DrepositoryId=sinosoft   -Durl=http://10.1.105.169:8081/repository/maven-releases/</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">第二种方式</span></span><br><span class="line">mvn deploy:deploy-file -Durl=http://10.1.105.169:8081/repository/maven-releases/ -Dfile="/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.jar" -DgeneratePom=false -DpomFile="/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.pom"</span><br></pre></td></tr></table></figure>
 <p><font color="blue"><strong>一定记住：url一定要为maven-relases或maven-snapshot,不能为group组如maven-central，否则报错 HTTP.405,PUT method not allowed </strong></font></p>
 <h5 id="上传工程所有依赖到本地代码库"><a href="#上传工程所有依赖到本地代码库" class="headerlink" title="- 上传工程所有依赖到本地代码库"></a>- 上传工程所有依赖到本地代码库</h5><ol>
 <li><p>导出pom的所有依赖</p>
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn -Dmdep.copyPom=true dependency:copy-dependencies</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>遍历并上传</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">for pom in target/dependency/*.pom; do mvn deploy:deploy-file -Durl=http://10.1.105.169:8081/repository/maven-releases/ -Dfile="$&#123;pom%%.pom&#125;.jar" -DgeneratePom=false -DpomFile="$pom" -DrepositoryId=ID;done</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span>#### -  部署工程到远程代码仓库</span><br><span class="line">修改pom.xml</span><br><span class="line">```xml</span><br><span class="line">&lt;distributionManagement&gt;</span><br><span class="line">        &lt;repository&gt;</span><br><span class="line">            &lt;id&gt;ID&lt;/id&gt;</span><br><span class="line">            &lt;name&gt;部署release到nexus&lt;/name&gt;</span><br><span class="line">            &lt;url&gt;http://10.1.105.169:8081/repository/maven-releases/&lt;/url&gt;</span><br><span class="line">        &lt;/repository&gt;</span><br><span class="line">        &lt;snapshotRepository&gt;</span><br><span class="line">            &lt;id&gt;ID&lt;/id&gt;</span><br><span class="line">            &lt;name&gt;部署snapshot到NEXUS&lt;/name&gt;</span><br><span class="line">            &lt;url&gt;http://10.1.105.169:8081/repository/maven-snapshots/&lt;/url&gt;</span><br><span class="line">        &lt;/snapshotRepository&gt;</span><br><span class="line">&lt;/distributionManagement&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">for pom in target/dependency/*.pom; do mvn deploy:deploy-file -Durl=http://10.1.105.169:8081/repository/maven-releases/ -Dfile="$&#123;pom%%.pom&#125;.jar" -DgeneratePom=false -DpomFile="$pom" -DrepositoryId=ID;done</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"><span class="hljs-comment">#### -  部署工程到远程代码仓库</span></span></span><br><span class="line">修改pom.xml</span><br><span class="line">```xml</span><br><span class="line">&lt;distributionManagement&gt;</span><br><span class="line">        &lt;repository&gt;</span><br><span class="line">            &lt;id&gt;ID&lt;/id&gt;</span><br><span class="line">            &lt;name&gt;部署release到nexus&lt;/name&gt;</span><br><span class="line">            &lt;url&gt;http://10.1.105.169:8081/repository/maven-releases/&lt;/url&gt;</span><br><span class="line">        &lt;/repository&gt;</span><br><span class="line">        &lt;snapshotRepository&gt;</span><br><span class="line">            &lt;id&gt;ID&lt;/id&gt;</span><br><span class="line">            &lt;name&gt;部署snapshot到NEXUS&lt;/name&gt;</span><br><span class="line">            &lt;url&gt;http://10.1.105.169:8081/repository/maven-snapshots/&lt;/url&gt;</span><br><span class="line">        &lt;/snapshotRepository&gt;</span><br><span class="line">&lt;/distributionManagement&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h5 id="从远程代码仓库下载依赖"><a href="#从远程代码仓库下载依赖" class="headerlink" title="-  从远程代码仓库下载依赖"></a>-  从远程代码仓库下载依赖</h5><p>同上,</p>
@@ -751,6 +756,11 @@
                 &copy; 2019 FlyingPigQAQ&nbsp;
                 Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
                 
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
                 </p>
             </div>
             <div class="level-end">
@@ -873,6 +883,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     
     
+    
+
     
 
 
