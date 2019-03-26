@@ -2,7 +2,7 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>想飞的猪猪</title>
+<title>分类: 常用参考工具 - 想飞的猪猪</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -10,7 +10,7 @@
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="想飞的猪猪">
-<meta property="og:url" content="https://flyingpigqaq.github.io/index.html">
+<meta property="og:url" content="https://flyingpigqaq.github.io/categories/常用参考工具/index.html">
 <meta property="og:site_name" content="想飞的猪猪">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
@@ -98,7 +98,7 @@
             
             <div class="navbar-start">
                 
-                <a class="navbar-item is-active" href="/">Home</a>
+                <a class="navbar-item" href="/">Home</a>
                 
                 <a class="navbar-item" href="/archives">Archives</a>
                 
@@ -126,7 +126,18 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-7-widescreen has-order-2 column-main">
+                <div class="column is-8-tablet is-8-desktop is-7-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/categories">分类</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">常用参考工具</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
     <div class="card">
     
     <div class="card-content article ">
@@ -73986,331 +73997,6 @@
 </tr>
 </tbody>
 </table>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-03-15T07:36:59.000Z">2019-03-15</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/常用软件部署参考文档/">常用软件部署参考文档</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    4 分钟 读完 (大约 579 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/03/15/nexus搭建maven和npm私服/">nexus搭建maven和npm私服</a>
-            
-        </h1>
-        <div class="content">
-            <h1 id="Nexus-Oss-安装配置文档"><a href="#Nexus-Oss-安装配置文档" class="headerlink" title="Nexus Oss 安装配置文档"></a>Nexus Oss 安装配置文档</h1><h2 id="Nexus-Repository-Manager-OSS-3-x"><a href="#Nexus-Repository-Manager-OSS-3-x" class="headerlink" title="Nexus Repository Manager OSS 3.x"></a><a href="https://www.sonatype.com/download-oss-sonatype?hsCtaTracking=920dd7b5-7ef3-47fe-9600-10fecad8aa32%7Cf59d5f10-099f-4c66-a622-0254373f4a92" target="_blank" rel="noopener">Nexus Repository Manager OSS 3.x</a></h2><p>本文档基于oss3.x版本编写，包含maven私服和npm私服的配置</p>
-<h3 id="私服默认账户"><a href="#私服默认账户" class="headerlink" title="私服默认账户"></a>私服默认账户</h3><p>admin/admin123</p>
-<h3 id="一、Maven私服搭建"><a href="#一、Maven私服搭建" class="headerlink" title="一、Maven私服搭建"></a>一、Maven私服搭建</h3><h4 id="1-配置用户权限（网页操作）"><a href="#1-配置用户权限（网页操作）" class="headerlink" title="1. 配置用户权限（网页操作）"></a>1. 配置用户权限（网页操作）</h4><h4 id="2-配置settings-xml"><a href="#2-配置settings-xml" class="headerlink" title="2. 配置settings.xml"></a>2. 配置settings.xml</h4><p>增加,<br><figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">server</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>ID<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">username</span>&gt;</span>USERNAME<span class="hljs-tag">&lt;/<span class="hljs-name">username</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>PASSWORD<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">server</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="3-上传依赖到远程代码库"><a href="#3-上传依赖到远程代码库" class="headerlink" title="3. 上传依赖到远程代码库"></a>3. 上传依赖到远程代码库</h4><blockquote>
-<p>注意：<strong>不能将jar文件或者pom文件指定为本地代码仓库的文件，否则会报错Cannot deploy artifact from the local repository。具体原因待查</strong>  </p>
-</blockquote>
-<h5 id="上传单个依赖到远程代码库"><a href="#上传单个依赖到远程代码库" class="headerlink" title="- 上传单个依赖到远程代码库"></a>- 上传单个依赖到远程代码库</h5><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">第一种方式</span></span><br><span class="line">mvn deploy:deploy-file -DgroupId=mysql   -DartifactId=mysql-connector-java   -Dversion=5.1.45   -Dpackaging=jar   -Dfile=/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.jar   -DrepositoryId=sinosoft   -Durl=http://10.1.105.169:8081/repository/maven-releases/</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">第二种方式</span></span><br><span class="line">mvn deploy:deploy-file -Durl=http://10.1.105.169:8081/repository/maven-releases/ -Dfile="/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.jar" -DgeneratePom=false -DpomFile="/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.pom"</span><br></pre></td></tr></table></figure>
-<p><font color="blue"><strong>一定记住：url一定要为maven-relases或maven-snapshot,不能为group组如maven-central，否则报错 HTTP.405,PUT method not allowed </strong></font></p>
-<h5 id="上传工程所有依赖到本地代码库"><a href="#上传工程所有依赖到本地代码库" class="headerlink" title="- 上传工程所有依赖到本地代码库"></a>- 上传工程所有依赖到本地代码库</h5><ol>
-<li><p>导出pom的所有依赖</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn -Dmdep.copyPom=true dependency:copy-dependencies</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>遍历并上传</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">for pom in target/dependency/*.pom; do mvn deploy:deploy-file -Durl=http://10.1.105.169:8081/repository/maven-releases/ -Dfile="$&#123;pom%%.pom&#125;.jar" -DgeneratePom=false -DpomFile="$pom" -DrepositoryId=ID;done</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"><span class="hljs-comment">#### -  部署工程到远程代码仓库</span></span></span><br><span class="line">修改pom.xml</span><br><span class="line">```xml</span><br><span class="line">&lt;distributionManagement&gt;</span><br><span class="line">        &lt;repository&gt;</span><br><span class="line">            &lt;id&gt;ID&lt;/id&gt;</span><br><span class="line">            &lt;name&gt;部署release到nexus&lt;/name&gt;</span><br><span class="line">            &lt;url&gt;http://10.1.105.169:8081/repository/maven-releases/&lt;/url&gt;</span><br><span class="line">        &lt;/repository&gt;</span><br><span class="line">        &lt;snapshotRepository&gt;</span><br><span class="line">            &lt;id&gt;ID&lt;/id&gt;</span><br><span class="line">            &lt;name&gt;部署snapshot到NEXUS&lt;/name&gt;</span><br><span class="line">            &lt;url&gt;http://10.1.105.169:8081/repository/maven-snapshots/&lt;/url&gt;</span><br><span class="line">        &lt;/snapshotRepository&gt;</span><br><span class="line">&lt;/distributionManagement&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h5 id="从远程代码仓库下载依赖"><a href="#从远程代码仓库下载依赖" class="headerlink" title="-  从远程代码仓库下载依赖"></a>-  从远程代码仓库下载依赖</h5><p>同上,</p>
-<pre><code class="xml"><span class="tag">&lt;<span class="name">profiles</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">profile</span>&gt;</span>
-            <span class="tag">&lt;<span class="name">id</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">id</span>&gt;</span>
-            <span class="tag">&lt;<span class="name">repositories</span>&gt;</span>
-                <span class="tag">&lt;<span class="name">repository</span>&gt;</span>
-                    <span class="tag">&lt;<span class="name">id</span>&gt;</span>sinosoft<span class="tag">&lt;/<span class="name">id</span>&gt;</span>
-                    <span class="tag">&lt;<span class="name">name</span>&gt;</span>repo-public<span class="tag">&lt;/<span class="name">name</span>&gt;</span>
-                    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://10.1.105.169:8081/repository/maven-public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span>
-                    <span class="tag">&lt;<span class="name">releases</span>&gt;</span>
-                        <span class="tag">&lt;<span class="name">checksumPolicy</span>&gt;</span>warn<span class="tag">&lt;/<span class="name">checksumPolicy</span>&gt;</span>
-                        <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span>
-                        <span class="tag">&lt;<span class="name">updatePolicy</span>&gt;</span>always<span class="tag">&lt;/<span class="name">updatePolicy</span>&gt;</span>
-                    <span class="tag">&lt;/<span class="name">releases</span>&gt;</span>
-                    <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span>
-                        <span class="tag">&lt;<span class="name">checksumPolicy</span>&gt;</span>warn<span class="tag">&lt;/<span class="name">checksumPolicy</span>&gt;</span>
-                        <span class="tag">&lt;<span class="name">updatePolicy</span>&gt;</span>never<span class="tag">&lt;/<span class="name">updatePolicy</span>&gt;</span>
-                        <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span>
-                    <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span>
-                <span class="tag">&lt;/<span class="name">repository</span>&gt;</span>
-            <span class="tag">&lt;/<span class="name">repositories</span>&gt;</span>
-        <span class="tag">&lt;/<span class="name">profile</span>&gt;</span>
-<span class="tag">&lt;/<span class="name">profiles</span>&gt;</span>
-</code></pre>
-<p>开启activeProfiles=&lt;RepositoryId&gt;</p>
-<h3 id="二、Npm私服搭建"><a href="#二、Npm私服搭建" class="headerlink" title="二、Npm私服搭建"></a>二、Npm私服搭建</h3><blockquote>
-<p>注意oss 2.x版本不支持对 scoped packages(如@types)的支持  </p>
-</blockquote>
-<ol>
-<li><p>配置npm-hosted，存储公司内部依赖  </p>
-<p><img src="img/nexus-1.png" alt=""><br><img src="img/nexus-2.jpg" alt="">  </p>
-</li>
-<li><p>配置npm-proxy,存储外部镜像源依赖  </p>
-<p><img src="img/nexus-3.png" alt="">  </p>
-</li>
-<li><p>配置npm-group,将以上两个仓库添加进去即可  </p>
-<p><img src="img/nexus-4.png" alt="">  </p>
-</li>
-<li><p>客户端仓库地址填写以下地址即可(如无特殊需求，只需关注group类型)  </p>
-<p><img src="img/nexus-5.png" alt="">  </p>
-</li>
-<li>Realms授权 <code>npm Bearer Token Realm</code><br><img src="img/nexus-7.png" alt="">  </li>
-</ol>
-<h4 id="Npm发布内部依赖到私服"><a href="#Npm发布内部依赖到私服" class="headerlink" title="Npm发布内部依赖到私服"></a>Npm发布内部依赖到私服</h4><blockquote>
-<p><strong><em>一定要记住发布包到 hosted 仓库位置</em></strong>  </p>
-</blockquote>
-<ol>
-<li>修改镜像源地址<br><code>npm set registry http://192.168.180.194:8082/repository/npm-public/</code></li>
-<li>登录  <ul>
-<li>npm adduser –registry=<a href="http://192.168.180.194:8082/repository/npm-private/" target="_blank" rel="noopener">http://192.168.180.194:8082/repository/npm-private/</a></li>
-<li>npm login  –registry=<a href="http://192.168.180.194:8082/repository/npm-private/" target="_blank" rel="noopener">http://192.168.180.194:8082/repository/npm-private/</a></li>
-</ul>
-</li>
-<li>发布<br>npm publish –registry=<a href="http://192.168.180.194:8082/repository/npm-private/" target="_blank" rel="noopener">http://192.168.180.194:8082/repository/npm-private/</a></li>
-</ol>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-02-26T05:38:05.000Z">2019-02-26</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Linux参考指南/">Linux参考指南</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    11 分钟 读完 (大约 1583 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/02/26/Top命令参考指南/">Top命令参考指南</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="Top命令参考指南"><a href="#Top命令参考指南" class="headerlink" title="Top命令参考指南"></a>Top命令参考指南</h2><blockquote>
-<p>Top命令是系统性能监控和瓶颈分析的优秀工具。<br>本节内容着重讲述top命令面板和一些常用的参数。<br>最后欢迎大家在评论区积极维护补充。</p>
-</blockquote>
-<h3 id="系统信息摘要"><a href="#系统信息摘要" class="headerlink" title="系统信息摘要"></a>系统信息摘要</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#system time</span></span><br><span class="line"><span class="hljs-comment">#uptime          </span></span><br><span class="line"><span class="hljs-comment">#user sessions</span></span><br><span class="line"><span class="hljs-comment">#load average:系统平均负载，必须等待完成任务的的时间的相对度量。（1分钟,5分钟,15分钟）。负载为处在任何时刻Runnable状态和Uninterruptible sleep状态的进程数。</span></span><br><span class="line"><span class="hljs-comment">#如何理解：在单核系统上，平均负载为0.4意味着系统只能完成60％的工作。平均负载为1意味着系统完全处于容量状态 。负载平均值为2.12的系统意味着它的负载超过其处理的112％。</span></span><br><span class="line"></span><br><span class="line">在多核系统上，您应首先将负载平均值除以CPU核心数，以获得类似的度量。</span><br><span class="line">top - 13:46:25 up 28 days,  2:40,  1 user,  load average: 0.00, 0.01, 0.05</span><br><span class="line"><span class="hljs-comment">#buff/cache:Linux内核总在尝试减少磁盘访问时间，它在RAM中维护一个“磁盘缓存”，其中存储了磁盘的常用区域 #此外，磁盘写入存储到“磁盘缓冲区”，内核最终将它们写入磁盘。它们消耗的总内存是“buff/cache”值。但需要注意的是，在必要的时候，该值会优先分配给要使用的进程</span></span><br><span class="line">KiB Mem :  1882760 total,    64860 free,   840544 used,   977356 buff/cache</span><br><span class="line"><span class="hljs-comment">#swap使用硬盘空间，当内存使用率接近100%的时候，最低使用率的内存区域会被写入到swap空间，但注意</span></span><br><span class="line"><span class="hljs-comment">#依赖太多交换空间会影响系统性能</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># 'avail mem'：可以被分配给进程的数值，同时不会造成更多的swap</span></span><br><span class="line">KiB Swap:  2097148 total,  2097148 free,        0 used.   839960 avail Mem</span><br><span class="line"><span class="hljs-comment"># total:内核中进程总数</span></span><br><span class="line"><span class="hljs-comment">#runnable:进程处于该状态表明：要么在cpu上执行，要么在运行队列上等待被执行</span></span><br><span class="line"><span class="hljs-comment">#Interruptible sleep：等待事件完成</span></span><br><span class="line"><span class="hljs-comment">#Uninterruptible sleep：等待IO操作完成</span></span><br><span class="line"><span class="hljs-comment">#Zobie：内核在内存中维护各种数据结构以跟踪进程。 一个进程可能会创建许多子进程，并且它们可能会在父进程仍然存在时退出。 但是，必须保留这些数据结构，直到父级获取子进程的状态。 数据结构仍然存在的这种终止进程称</span></span><br><span class="line"><span class="hljs-comment">#为僵尸。</span></span><br><span class="line">Tasks:  95 total,   1 running,  94 sleeping,   0 stopped,   0 zombie</span><br><span class="line"><span class="hljs-comment">#us:the time is cpu spends executing processes in userspace(cpu在用户空间执行进程花费时间)</span></span><br><span class="line"><span class="hljs-comment">#sy:the time spent on running kernalspace processes(cpu运行系统进程花费时间--内核空间)</span></span><br><span class="line"><span class="hljs-comment">#ni:手动设置进程nice值花费的时间。每个进程的nice值的大小决定其优先级的高低。nice值越高，优先级越低。</span></span><br><span class="line"><span class="hljs-comment">#id：idlecpu保持空闲时间</span></span><br><span class="line"><span class="hljs-comment">#wa:waitcpu等待io完成耗费时间</span></span><br><span class="line"><span class="hljs-comment">#hi:hardware interrupts.系统处理硬件中断事件(按压键盘的事件中断)花费时间</span></span><br><span class="line"><span class="hljs-comment">#si:software interrupts.系统处理软件中断花费时间</span></span><br><span class="line"><span class="hljs-comment">#st:在虚拟化环境中，部分cpu资源被分配给各个虚拟机。当系统检测到有任务需要执行，但cpu因为忙于其他vm而无法执行所耗费的时间为‘st’</span></span><br><span class="line">%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#在单核系统中意味着：</span></span><br><span class="line"><span class="hljs-comment">#CPU 被充分利用（100%）；最近的 1 分钟有 1 个进程在运行。</span></span><br><span class="line"><span class="hljs-comment">#CPU 有 60% 处于空闲状态；在最近的 5 分钟没有进程等待 CPU 时间。</span></span><br><span class="line"><span class="hljs-comment">#CPU 平均过载了 235%；最近的 15 分钟平均有 2.35 个进程在等待 CPU 时间。</span></span><br><span class="line"><span class="hljs-comment">#在双核系统中意味着：</span></span><br><span class="line"><span class="hljs-comment">#有一个 CPU 处于完全空闲状态，另一个 CPU 被使用；最近的 1 分钟没有进程等待 CPU 时间。</span></span><br><span class="line"><span class="hljs-comment">#CPU 平均 160% 处于空闲状态；最近的 5 分钟没有进程等待 CPU 时间。</span></span><br><span class="line"><span class="hljs-comment">#CPU 平均过载了 135%；最近的 15 分钟有 1.35 个进程等待 CPU 时间。</span></span><br><span class="line">23:16:49 up  10:49,  5 user,  load average: 1.00, 0.40, 3.35</span><br></pre></td></tr></table></figure>
-<h3 id="进程任务区域"><a href="#进程任务区域" class="headerlink" title="进程任务区域"></a>进程任务区域</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND</span><br><span class="line"><span class="hljs-comment">#PID:进程id</span></span><br><span class="line"><span class="hljs-comment">#USER:有效用户。Linux为进程分配真实用户和有效用户。后者允许进程代表另一个用户行事。（例如：非root用户可以sudo到root来安装程序包）</span></span><br><span class="line"><span class="hljs-comment">#NI：显示进程‘nice’值</span></span><br><span class="line"><span class="hljs-comment">#PR：内核角度显示进程的调度优先级。‘nice’值影响响应进程的优先级</span></span><br><span class="line"><span class="hljs-comment">#VIRT:进程消耗的内存总量。包括：程序代码，进程在内存中存储的数据以及已交换到磁盘的swap内存区域。</span></span><br><span class="line"><span class="hljs-comment">#RES:进程在RAM中消耗的内存</span></span><br><span class="line"><span class="hljs-comment">#%MEM:RES/可用RAM总量</span></span><br><span class="line"><span class="hljs-comment">#SHR:进程与其他进程共享的内存量</span></span><br><span class="line"><span class="hljs-comment">#S:process status。</span></span><br><span class="line"><span class="hljs-comment">##D = uninterruptible sleep</span></span><br><span class="line"><span class="hljs-comment">##R = running</span></span><br><span class="line"><span class="hljs-comment">##S = sleeping</span></span><br><span class="line"><span class="hljs-comment">##T = stopped by job control signal</span></span><br><span class="line"><span class="hljs-comment">##t = stopped by debugger during trace</span></span><br><span class="line"><span class="hljs-comment">##Z = zombie</span></span><br><span class="line"><span class="hljs-comment">#Time+：进程自启动以来使用的cpu时间</span></span><br><span class="line"><span class="hljs-comment">#Command:显示进程名称</span></span><br></pre></td></tr></table></figure>
-<h3 id="用法（单引号中的内容需要键入）"><a href="#用法（单引号中的内容需要键入）" class="headerlink" title="用法（单引号中的内容需要键入）"></a>用法（<code>单引号中的内容需要键入</code>）</h3><ol>
-<li>杀死进程<ul>
-<li>(触发k) 先输入要杀死的pid,再输入相关信号的整型值</li>
-</ul>
-</li>
-<li>进程列表排序<ul>
-<li>‘M’ 根据内存使用情况排序</li>
-<li>‘P’ cpu使用情况排序</li>
-<li>‘N’ pid排序</li>
-<li>‘T’ 运行时间排序<blockquote>
-<p>默认为降序排序，‘R’可以改为升序<br>Example: top -o %cpu;  </p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>各个进程的线程总数</p>
-<ul>
-<li>‘H’ 显示线程摘要信息<blockquote>
-<p>Threads: 222 total,   1 running, 221 sleeping,   0 stopped,   0 zombie  </p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>查看指定进程的线程信息</p>
-<ul>
-<li>top -Hp PID</li>
-</ul>
-</li>
-<li><p>COMMAND显示完整路径</p>
-<ul>
-<li>‘c’<blockquote>
-<p>top -c  </p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>查看子进程的父级层次结构</p>
-<ul>
-<li>‘V’：Forest view</li>
-</ul>
-</li>
-<li><p>查看某个用户下的进程列表</p>
-<ul>
-<li>‘u’-&gt;’USER’<blockquote>
-<p>top -u USER  </p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>进程信息过滤</p>
-<ul>
-<li>‘O’:开启过滤模式(区分大小写)<ul>
-<li>COMMAND=java:进程COMMAND一栏包含java属性</li>
-<li>!COMMAND=java:进程COMMAND一栏不包含java属性</li>
-<li>%CPU&gt;3.0:cpu使用率大于3%</li>
-</ul>
-</li>
-<li>过滤条件可以叠加</li>
-<li>‘=’:清除过滤信息</li>
-</ul>
-</li>
-<li>保存当前top输出<ul>
-<li>‘W’:路径通常为~/.toprc</li>
-</ul>
-</li>
-</ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>如果想要查看更详细的信息，<code>man top</code>了解下。</p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-02-02T15:21:08.000Z">2019-02-02</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/常用IT网址/">常用IT网址</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    几秒 读完 (大约 96 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/02/02/国内镜像源集合/">国内镜像源集合</a>
-            
-        </h1>
-        <div class="content">
-            <blockquote>
-<p>某些已知原因导致大家在下载镜像文件的时候会特别慢，国内大厂通过自己搭建私服<br>并颇为友善的将其分享出来，下面是我搜集的各种有效的镜像地址，欢迎大家留言补充。</p>
-</blockquote>
-<h3 id="NPM阿里镜像源"><a href="#NPM阿里镜像源" class="headerlink" title="NPM阿里镜像源"></a>NPM阿里镜像源</h3><p><a href="http://registry.npm.taobao.org" target="_blank" rel="noopener">http://registry.npm.taobao.org</a><br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry=&apos;http://registry.npm.taobao.org&apos;</span><br></pre></td></tr></table></figure></p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-02-02T12:00:45.000Z">2019-02-02</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/新的开始/">新的开始</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    1 分钟 读完 (大约 116 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/02/02/Hello-World/">GoGoGo</a>
-            
-        </h1>
-        <div class="content">
-            <h3 id="新的征程，新的开始"><a href="#新的征程，新的开始" class="headerlink" title="新的征程，新的开始"></a>新的征程，新的开始</h3><p>2019年，又是新的一年。拖拖踏踏了好久的博客终于被我磨磨唧唧的弄出来了。想说的很多，却习惯性的语塞，就像我遇到喜欢的女孩子不敢表白一样。扯远了…新年一般是需要立flag的，那就是先把手头的书给看完，然后工资最起码翻个翻，哈哈哈。</p>
 
         </div>
         
