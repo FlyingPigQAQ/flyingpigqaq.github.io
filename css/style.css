@@ -479,3 +479,6 @@ figure.highlight:hover .copy {
 .gist .file {
   all: initial;
 }
+.table-area {
+  overflow: auto;
+}

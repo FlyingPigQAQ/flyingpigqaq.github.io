@@ -8,25 +8,25 @@
 
 
 
-    <meta name="description" content="Nexus Oss 安装配置文档Nexus Repository Manager OSS 3.x本文档基于oss3.x版本编写，包含maven私服和npm私服的配置 私服默认账户admin/admin123 一、Maven私服搭建1. 配置用户权限（网页操作）2. 配置settings.xml增加,12345&amp;lt;server&amp;gt;    &amp;lt;id&amp;gt;ID&amp;lt;/id&amp;gt;">
+    <meta name="description" content="Nexus Oss 安装配置文档Nexus Repository Manager OSS 3.x本文档基于oss3.x版本编写，包含maven私服和npm私服的配置 私服默认账户admin/admin123 一、Maven私服搭建1. 配置用户权限（网页操作）2. 配置settings.xml">
 <meta name="keywords" content="nexus,npm私服搭建,maven私服搭建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nexus搭建maven和npm私服">
 <meta property="og:url" content="https://flyingpigqaq.github.io/2019/03/15/nexus搭建maven和npm私服/index.html">
 <meta property="og:site_name" content="想飞的猪猪">
-<meta property="og:description" content="Nexus Oss 安装配置文档Nexus Repository Manager OSS 3.x本文档基于oss3.x版本编写，包含maven私服和npm私服的配置 私服默认账户admin/admin123 一、Maven私服搭建1. 配置用户权限（网页操作）2. 配置settings.xml增加,12345&amp;lt;server&amp;gt;    &amp;lt;id&amp;gt;ID&amp;lt;/id&amp;gt;">
+<meta property="og:description" content="Nexus Oss 安装配置文档Nexus Repository Manager OSS 3.x本文档基于oss3.x版本编写，包含maven私服和npm私服的配置 私服默认账户admin/admin123 一、Maven私服搭建1. 配置用户权限（网页操作）2. 配置settings.xml">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://flyingpigqaq.github.io/2019/03/15/nexus搭建maven和npm私服/img/nexus-1.png">
-<meta property="og:image" content="https://flyingpigqaq.github.io/2019/03/15/nexus搭建maven和npm私服/img/nexus-2.jpg">
-<meta property="og:image" content="https://flyingpigqaq.github.io/2019/03/15/nexus搭建maven和npm私服/img/nexus-3.png">
-<meta property="og:image" content="https://flyingpigqaq.github.io/2019/03/15/nexus搭建maven和npm私服/img/nexus-4.png">
-<meta property="og:image" content="https://flyingpigqaq.github.io/2019/03/15/nexus搭建maven和npm私服/img/nexus-5.png">
-<meta property="og:image" content="https://flyingpigqaq.github.io/2019/03/15/nexus搭建maven和npm私服/img/nexus-7.png">
-<meta property="og:updated_time" content="2019-03-19T01:35:39.567Z">
+<meta property="og:image" content="https://flyingpigqaq.github.io/img/nexus-1.png">
+<meta property="og:image" content="https://flyingpigqaq.github.io/img/nexus-2.jpg">
+<meta property="og:image" content="https://flyingpigqaq.github.io/img/nexus-3.png">
+<meta property="og:image" content="https://flyingpigqaq.github.io/img/nexus-4.png">
+<meta property="og:image" content="https://flyingpigqaq.github.io/img/nexus-5.png">
+<meta property="og:image" content="https://flyingpigqaq.github.io/img/nexus-7.png">
+<meta property="og:updated_time" content="2019-03-27T03:06:10.952Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nexus搭建maven和npm私服">
-<meta name="twitter:description" content="Nexus Oss 安装配置文档Nexus Repository Manager OSS 3.x本文档基于oss3.x版本编写，包含maven私服和npm私服的配置 私服默认账户admin/admin123 一、Maven私服搭建1. 配置用户权限（网页操作）2. 配置settings.xml增加,12345&amp;lt;server&amp;gt;    &amp;lt;id&amp;gt;ID&amp;lt;/id&amp;gt;">
-<meta name="twitter:image" content="https://flyingpigqaq.github.io/2019/03/15/nexus搭建maven和npm私服/img/nexus-1.png">
+<meta name="twitter:description" content="Nexus Oss 安装配置文档Nexus Repository Manager OSS 3.x本文档基于oss3.x版本编写，包含maven私服和npm私服的配置 私服默认账户admin/admin123 一、Maven私服搭建1. 配置用户权限（网页操作）2. 配置settings.xml">
+<meta name="twitter:image" content="https://flyingpigqaq.github.io/img/nexus-1.png">
 
 
 
@@ -96,7 +96,7 @@
 
 <link rel="stylesheet" href="/css/style.css">
 </head>
-<body class="is-3-column">
+<body class="is-2-column">
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
@@ -142,7 +142,7 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-7-widescreen has-order-2 column-main"><div class="card">
+                <div class="column is-12-tablet is-12-desktop is-12-widescreen has-order-2 column-main"><div class="card">
     
     <div class="card-content article ">
         
@@ -158,7 +158,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 579 个字)
+                    4 分钟 读完 (大约 583 个字)
                 </span>
                 
                 
@@ -178,21 +178,24 @@
         <div class="content">
             <h1 id="Nexus-Oss-安装配置文档"><a href="#Nexus-Oss-安装配置文档" class="headerlink" title="Nexus Oss 安装配置文档"></a>Nexus Oss 安装配置文档</h1><h2 id="Nexus-Repository-Manager-OSS-3-x"><a href="#Nexus-Repository-Manager-OSS-3-x" class="headerlink" title="Nexus Repository Manager OSS 3.x"></a><a href="https://www.sonatype.com/download-oss-sonatype?hsCtaTracking=920dd7b5-7ef3-47fe-9600-10fecad8aa32%7Cf59d5f10-099f-4c66-a622-0254373f4a92" target="_blank" rel="noopener">Nexus Repository Manager OSS 3.x</a></h2><p>本文档基于oss3.x版本编写，包含maven私服和npm私服的配置</p>
 <h3 id="私服默认账户"><a href="#私服默认账户" class="headerlink" title="私服默认账户"></a>私服默认账户</h3><p>admin/admin123</p>
-<h3 id="一、Maven私服搭建"><a href="#一、Maven私服搭建" class="headerlink" title="一、Maven私服搭建"></a>一、Maven私服搭建</h3><h4 id="1-配置用户权限（网页操作）"><a href="#1-配置用户权限（网页操作）" class="headerlink" title="1. 配置用户权限（网页操作）"></a>1. 配置用户权限（网页操作）</h4><h4 id="2-配置settings-xml"><a href="#2-配置settings-xml" class="headerlink" title="2. 配置settings.xml"></a>2. 配置settings.xml</h4><p>增加,<br><figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">server</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>ID<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">username</span>&gt;</span>USERNAME<span class="hljs-tag">&lt;/<span class="hljs-name">username</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>PASSWORD<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">server</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="一、Maven私服搭建"><a href="#一、Maven私服搭建" class="headerlink" title="一、Maven私服搭建"></a>一、Maven私服搭建</h3><h4 id="1-配置用户权限（网页操作）"><a href="#1-配置用户权限（网页操作）" class="headerlink" title="1. 配置用户权限（网页操作）"></a>1. 配置用户权限（网页操作）</h4><h4 id="2-配置settings-xml"><a href="#2-配置settings-xml" class="headerlink" title="2. 配置settings.xml"></a>2. 配置settings.xml</h4><a id="more"></a>
+<p>增加,  </p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">server</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>ID<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">username</span>&gt;</span>USERNAME<span class="hljs-tag">&lt;/<span class="hljs-name">username</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">password</span>&gt;</span>PASSWORD<span class="hljs-tag">&lt;/<span class="hljs-name">password</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">server</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h4 id="3-上传依赖到远程代码库"><a href="#3-上传依赖到远程代码库" class="headerlink" title="3. 上传依赖到远程代码库"></a>3. 上传依赖到远程代码库</h4><blockquote>
 <p>注意：<strong>不能将jar文件或者pom文件指定为本地代码仓库的文件，否则会报错Cannot deploy artifact from the local repository。具体原因待查</strong>  </p>
 </blockquote>
-<h5 id="上传单个依赖到远程代码库"><a href="#上传单个依赖到远程代码库" class="headerlink" title="- 上传单个依赖到远程代码库"></a>- 上传单个依赖到远程代码库</h5><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">第一种方式</span></span><br><span class="line">mvn deploy:deploy-file -DgroupId=mysql   -DartifactId=mysql-connector-java   -Dversion=5.1.45   -Dpackaging=jar   -Dfile=/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.jar   -DrepositoryId=sinosoft   -Durl=http://10.1.105.169:8081/repository/maven-releases/</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">第二种方式</span></span><br><span class="line">mvn deploy:deploy-file -Durl=http://10.1.105.169:8081/repository/maven-releases/ -Dfile="/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.jar" -DgeneratePom=false -DpomFile="/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.pom"</span><br></pre></td></tr></table></figure>
+<h5 id="上传单个依赖到远程代码库"><a href="#上传单个依赖到远程代码库" class="headerlink" title="- 上传单个依赖到远程代码库"></a>- 上传单个依赖到远程代码库</h5><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span>第一种方式</span><br><span class="line">mvn deploy:deploy-file -DgroupId=mysql   -DartifactId=mysql-connector-java   -Dversion=5.1.45   -Dpackaging=jar   -Dfile=/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.jar   -DrepositoryId=sinosoft   -Durl=http://10.1.105.169:8081/repository/maven-releases/</span><br><span class="line"><span class="hljs-meta">#</span>第二种方式</span><br><span class="line">mvn deploy:deploy-file -Durl=http://10.1.105.169:8081/repository/maven-releases/ -Dfile="/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.jar" -DgeneratePom=false -DpomFile="/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.pom"</span><br></pre></td></tr></table></figure>
 <p><font color="blue"><strong>一定记住：url一定要为maven-relases或maven-snapshot,不能为group组如maven-central，否则报错 HTTP.405,PUT method not allowed </strong></font></p>
 <h5 id="上传工程所有依赖到本地代码库"><a href="#上传工程所有依赖到本地代码库" class="headerlink" title="- 上传工程所有依赖到本地代码库"></a>- 上传工程所有依赖到本地代码库</h5><ol>
-<li><p>导出pom的所有依赖</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn -Dmdep.copyPom=true dependency:copy-dependencies</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>遍历并上传</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">for pom in target/dependency/*.pom; do mvn deploy:deploy-file -Durl=http://10.1.105.169:8081/repository/maven-releases/ -Dfile="$&#123;pom%%.pom&#125;.jar" -DgeneratePom=false -DpomFile="$pom" -DrepositoryId=ID;done</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"><span class="hljs-comment">#### -  部署工程到远程代码仓库</span></span></span><br><span class="line">修改pom.xml</span><br><span class="line">```xml</span><br><span class="line">&lt;distributionManagement&gt;</span><br><span class="line">        &lt;repository&gt;</span><br><span class="line">            &lt;id&gt;ID&lt;/id&gt;</span><br><span class="line">            &lt;name&gt;部署release到nexus&lt;/name&gt;</span><br><span class="line">            &lt;url&gt;http://10.1.105.169:8081/repository/maven-releases/&lt;/url&gt;</span><br><span class="line">        &lt;/repository&gt;</span><br><span class="line">        &lt;snapshotRepository&gt;</span><br><span class="line">            &lt;id&gt;ID&lt;/id&gt;</span><br><span class="line">            &lt;name&gt;部署snapshot到NEXUS&lt;/name&gt;</span><br><span class="line">            &lt;url&gt;http://10.1.105.169:8081/repository/maven-snapshots/&lt;/url&gt;</span><br><span class="line">        &lt;/snapshotRepository&gt;</span><br><span class="line">&lt;/distributionManagement&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li>导出pom的所有依赖  </li>
 </ol>
-<h5 id="从远程代码仓库下载依赖"><a href="#从远程代码仓库下载依赖" class="headerlink" title="-  从远程代码仓库下载依赖"></a>-  从远程代码仓库下载依赖</h5><p>同上,</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn -Dmdep.copyPom=true dependency:copy-dependencies</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>遍历并上传  </li>
+</ol>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for pom in target/dependency/*.pom; do mvn deploy:deploy-file -Durl=http://10.1.105.169:8081/repository/maven-releases/ -Dfile="$&#123;pom%%.pom&#125;.jar" -DgeneratePom=false -DpomFile="$pom" -DrepositoryId=ID;done</span><br></pre></td></tr></table></figure>
+<h5 id="部署工程到远程代码仓库"><a href="#部署工程到远程代码仓库" class="headerlink" title="-  部署工程到远程代码仓库"></a>-  部署工程到远程代码仓库</h5><p>修改pom.xml<br><figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">distributionManagement</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">repository</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>ID<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>部署release到nexus<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>http://10.1.105.169:8081/repository/maven-releases/<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">repository</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">snapshotRepository</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>ID<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>部署snapshot到NEXUS<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>http://10.1.105.169:8081/repository/maven-snapshots/<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">snapshotRepository</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">distributionManagement</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="从远程代码仓库下载依赖"><a href="#从远程代码仓库下载依赖" class="headerlink" title="- 从远程代码仓库下载依赖"></a>- 从远程代码仓库下载依赖</h5><p>同上,</p>
 <pre><code class="xml"><span class="tag">&lt;<span class="name">profiles</span>&gt;</span>
         <span class="tag">&lt;<span class="name">profile</span>&gt;</span>
             <span class="tag">&lt;<span class="name">id</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">id</span>&gt;</span>
@@ -222,31 +225,38 @@
 </blockquote>
 <ol>
 <li><p>配置npm-hosted，存储公司内部依赖  </p>
-<p><img src="img/nexus-1.png" alt=""><br><img src="img/nexus-2.jpg" alt="">  </p>
+<p><img src="/img/nexus-1.png" alt=""><br><img src="/img/nexus-2.jpg" alt="">  </p>
 </li>
 <li><p>配置npm-proxy,存储外部镜像源依赖  </p>
-<p><img src="img/nexus-3.png" alt="">  </p>
+<p><img src="/img/nexus-3.png" alt="">  </p>
 </li>
 <li><p>配置npm-group,将以上两个仓库添加进去即可  </p>
-<p><img src="img/nexus-4.png" alt="">  </p>
+<p><img src="/img/nexus-4.png" alt="">  </p>
 </li>
 <li><p>客户端仓库地址填写以下地址即可(如无特殊需求，只需关注group类型)  </p>
-<p><img src="img/nexus-5.png" alt="">  </p>
+<p><img src="/img/nexus-5.png" alt="">  </p>
 </li>
-<li>Realms授权 <code>npm Bearer Token Realm</code><br><img src="img/nexus-7.png" alt="">  </li>
+<li>Realms授权 <code>npm Bearer Token Realm</code><br><img src="/img/nexus-7.png" alt="">  </li>
 </ol>
 <h4 id="Npm发布内部依赖到私服"><a href="#Npm发布内部依赖到私服" class="headerlink" title="Npm发布内部依赖到私服"></a>Npm发布内部依赖到私服</h4><blockquote>
-<p><strong><em>一定要记住发布包到 hosted 仓库位置</em></strong>  </p>
+<p>一定要记住发布包到 hosted 仓库位置  </p>
 </blockquote>
 <ol>
-<li>修改镜像源地址<br><code>npm set registry http://192.168.180.194:8082/repository/npm-public/</code></li>
-<li>登录  <ul>
-<li>npm adduser –registry=<a href="http://192.168.180.194:8082/repository/npm-private/" target="_blank" rel="noopener">http://192.168.180.194:8082/repository/npm-private/</a></li>
-<li>npm login  –registry=<a href="http://192.168.180.194:8082/repository/npm-private/" target="_blank" rel="noopener">http://192.168.180.194:8082/repository/npm-private/</a></li>
-</ul>
-</li>
-<li>发布<br>npm publish –registry=<a href="http://192.168.180.194:8082/repository/npm-private/" target="_blank" rel="noopener">http://192.168.180.194:8082/repository/npm-private/</a></li>
+<li>修改镜像源地址  </li>
 </ol>
+<pre><code class="shell">npm set registry http://192.168.180.194:8082/repository/npm-public/
+</code></pre>
+<ol start="2">
+<li>登录  </li>
+</ol>
+<pre><code class="shell">npm adduser --registry=http://192.168.180.194:8082/repository/npm-private/
+npm login  --registry=http://192.168.180.194:8082/repository/npm-private/
+</code></pre>
+<ol start="3">
+<li>发布  </li>
+</ol>
+<pre><code class="shell">npm publish --registry=http://192.168.180.194:8082/repository/npm-private/
+</code></pre>
 
         </div>
         
@@ -272,7 +282,7 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/03/25/Unicode编码表/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/03/26/Unicode编码表/">
                 <i class="level-item fas fa-chevron-left"></i>
                 <span class="level-item">Unicode编码表</span>
             </a>
@@ -316,572 +326,6 @@
 </div>
 </div>
                 
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <nav class="level">
-            <div class="level-item has-text-centered">
-                <div>
-                    
-                        <img class="image is-128x128 has-mb-6" src="/images/avatar.jpeg" alt="想飞的猪猪">
-                    
-                    
-                    <p class="is-size-4 is-block">
-                        想飞的猪猪
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-block">
-                        技术圈的文艺xiao青年
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
-                        <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>Beijing,ZhongGuo</span>
-                    </p>
-                    
-                </div>
-            </div>
-        </nav>
-        <nav class="level is-mobile">
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        文章
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        5
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        分类
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        5
-                    </p>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        标签
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        8
-                    </p>
-                </div>
-            </div>
-        </nav>
-        <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/FlyingPigQAQ/" target="_blank">
-                关注我</a>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            
-            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/FlyingPigQAQ/">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
-                
-                <i class="fas fa-rss"></i>
-                
-            </a>
-            
-        </div>
-        
-    </div>
-</div>
-    
-        
-<div class="card widget" id="toc">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                目录
-            </h3>
-            <ul class="menu-list"><li>
-        <a class="is-flex" href="#Nexus-Oss-安装配置文档">
-        <span class="has-mr-6">1</span>
-        <span>Nexus Oss 安装配置文档</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#Nexus-Repository-Manager-OSS-3-x">
-        <span class="has-mr-6">1.1</span>
-        <span>Nexus Repository Manager OSS 3.x</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#私服默认账户">
-        <span class="has-mr-6">1.1.1</span>
-        <span>私服默认账户</span>
-        </a></li><li>
-        <a class="is-flex" href="#一、Maven私服搭建">
-        <span class="has-mr-6">1.1.2</span>
-        <span>一、Maven私服搭建</span>
-        </a></li><li>
-        <a class="is-flex" href="#二、Npm私服搭建">
-        <span class="has-mr-6">1.1.3</span>
-        <span>二、Npm私服搭建</span>
-        </a></li></ul></li></ul></li></ul>
-        </div>
-    </div>
-</div>
-
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                分类
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/Linux参考指南/">
-            <span class="level-start">
-                <span class="level-item">Linux参考指南</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/常用IT网址/">
-            <span class="level-start">
-                <span class="level-item">常用IT网址</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/常用参考工具/">
-            <span class="level-start">
-                <span class="level-item">常用参考工具</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/常用软件部署参考文档/">
-            <span class="level-start">
-                <span class="level-item">常用软件部署参考文档</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/新的开始/">
-            <span class="level-start">
-                <span class="level-item">新的开始</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            标签云
-        </h3>
-        <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/Unicode编码表/" style="font-size: 10px;">Unicode编码表</a> <a href="/tags/maven私服搭建/" style="font-size: 10px;">maven私服搭建</a> <a href="/tags/nexus/" style="font-size: 10px;">nexus</a> <a href="/tags/npm私服搭建/" style="font-size: 10px;">npm私服搭建</a> <a href="/tags/个人随语/" style="font-size: 10px;">个人随语</a> <a href="/tags/镜像源/" style="font-size: 10px;">镜像源</a>
-    </div>
-</div>
-
-    
-    
-        <div class="column-right-shadow is-hidden-widescreen ">
-        
-            
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            最新文章
-        </h3>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-25T06:20:37.000Z">2019-03-25</time></div>
-                    <a href="/2019/03/25/Unicode编码表/" class="has-link-black-ter is-size-6">Unicode编码表</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/常用参考工具/">常用参考工具</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-15T07:36:59.000Z">2019-03-15</time></div>
-                    <a href="/2019/03/15/nexus搭建maven和npm私服/" class="has-link-black-ter is-size-6">nexus搭建maven和npm私服</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/常用软件部署参考文档/">常用软件部署参考文档</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-26T05:38:05.000Z">2019-02-26</time></div>
-                    <a href="/2019/02/26/Top命令参考指南/" class="has-link-black-ter is-size-6">Top命令参考指南</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Linux参考指南/">Linux参考指南</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-02T15:21:08.000Z">2019-02-02</time></div>
-                    <a href="/2019/02/02/国内镜像源集合/" class="has-link-black-ter is-size-6">国内镜像源集合</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/常用IT网址/">常用IT网址</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-02T12:00:45.000Z">2019-02-02</time></div>
-                    <a href="/2019/02/02/Hello-World/" class="has-link-black-ter is-size-6">GoGoGo</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/新的开始/">新的开始</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-
-        
-            <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            归档
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/03/">
-                <span class="level-start">
-                    <span class="level-item">三月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/02/">
-                <span class="level-start">
-                    <span class="level-item">二月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">3</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-        
-            <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                标签
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Linux/">
-                        <span class="tag">Linux</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Shell/">
-                        <span class="tag">Shell</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Unicode编码表/">
-                        <span class="tag">Unicode编码表</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/maven私服搭建/">
-                        <span class="tag">maven私服搭建</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/nexus/">
-                        <span class="tag">nexus</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/npm私服搭建/">
-                        <span class="tag">npm私服搭建</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/个人随语/">
-                        <span class="tag">个人随语</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/镜像源/">
-                        <span class="tag">镜像源</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</div>
-        
-        </div>
-    
-</div>
-
-                
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            最新文章
-        </h3>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-25T06:20:37.000Z">2019-03-25</time></div>
-                    <a href="/2019/03/25/Unicode编码表/" class="has-link-black-ter is-size-6">Unicode编码表</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/常用参考工具/">常用参考工具</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-15T07:36:59.000Z">2019-03-15</time></div>
-                    <a href="/2019/03/15/nexus搭建maven和npm私服/" class="has-link-black-ter is-size-6">nexus搭建maven和npm私服</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/常用软件部署参考文档/">常用软件部署参考文档</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-26T05:38:05.000Z">2019-02-26</time></div>
-                    <a href="/2019/02/26/Top命令参考指南/" class="has-link-black-ter is-size-6">Top命令参考指南</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Linux参考指南/">Linux参考指南</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-02T15:21:08.000Z">2019-02-02</time></div>
-                    <a href="/2019/02/02/国内镜像源集合/" class="has-link-black-ter is-size-6">国内镜像源集合</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/常用IT网址/">常用IT网址</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-02-02T12:00:45.000Z">2019-02-02</time></div>
-                    <a href="/2019/02/02/Hello-World/" class="has-link-black-ter is-size-6">GoGoGo</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/新的开始/">新的开始</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            归档
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/03/">
-                <span class="level-start">
-                    <span class="level-item">三月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">2</span>
-                </span>
-            </a>
-        </li>
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/02/">
-                <span class="level-start">
-                    <span class="level-item">二月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">3</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-    
-        <div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                标签
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Linux/">
-                        <span class="tag">Linux</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Shell/">
-                        <span class="tag">Shell</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/Unicode编码表/">
-                        <span class="tag">Unicode编码表</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/maven私服搭建/">
-                        <span class="tag">maven私服搭建</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/nexus/">
-                        <span class="tag">nexus</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/npm私服搭建/">
-                        <span class="tag">npm私服搭建</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/个人随语/">
-                        <span class="tag">个人随语</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/镜像源/">
-                        <span class="tag">镜像源</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</div>
-    
-    
-</div>
-
             </div>
         </div>
     </section>
@@ -935,6 +379,13 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
 <script>moment.locale("zh-CN");</script>
+<script>[].slice.call(document.querySelectorAll('table')).forEach(function(el){
+        var wrapper = document.createElement('div');
+        wrapper.className = 'table-area';
+        el.parentNode.insertBefore(wrapper, el);
+        el.parentNode.removeChild(el);
+        wrapper.appendChild(el);
+    })</script>
 
 
     
