@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>想飞的猪猪</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://flyingpigqaq.github.io/"/>
+  <updated>2019-03-27T09:01:16.758Z</updated>
+  <id>https://flyingpigqaq.github.io/</id>
+  
+  <author>
+    <name>FlyingPigQAQ</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Unicode编码表</title>
+    <link href="https://flyingpigqaq.github.io/2019/03/26/Unicode%E7%BC%96%E7%A0%81%E8%A1%A8/"/>
+    <id>https://flyingpigqaq.github.io/2019/03/26/Unicode编码表/</id>
+    <published>2019-03-26T08:55:09.000Z</published>
+    <updated>2019-03-27T09:01:16.758Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;内容过大，加载比较慢，见谅  &lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="常用参考工具" scheme="https://flyingpigqaq.github.io/categories/%E5%B8%B8%E7%94%A8%E5%8F%82%E8%80%83%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Unicode编码表" scheme="https://flyingpigqaq.github.io/tags/Unicode%E7%BC%96%E7%A0%81%E8%A1%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nexus搭建maven和npm私服</title>
+    <link href="https://flyingpigqaq.github.io/2019/03/15/nexus%E6%90%AD%E5%BB%BAmaven%E5%92%8Cnpm%E7%A7%81%E6%9C%8D/"/>
+    <id>https://flyingpigqaq.github.io/2019/03/15/nexus搭建maven和npm私服/</id>
+    <published>2019-03-15T07:36:59.000Z</published>
+    <updated>2019-03-27T03:06:10.952Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Nexus-Oss-安装配置文档&quot;&gt;&lt;a href=&quot;#Nexus-Oss-安装配置文档&quot; class=&quot;headerlink&quot; title=&quot;Nexus Oss 安装配置文档&quot;&gt;&lt;/a&gt;Nexus Oss 安装配置文档&lt;/h1&gt;&lt;h2 id=&quot;Nexus-Repository-Manager-OSS-3-x&quot;&gt;&lt;a href=&quot;#Nexus-Repository-Manager-OSS-3-x&quot; class=&quot;headerlink&quot; title=&quot;Nexus Repository Manager OSS 3.x&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://www.sonatype.com/download-oss-sonatype?hsCtaTracking=920dd7b5-7ef3-47fe-9600-10fecad8aa32%7Cf59d5f10-099f-4c66-a622-0254373f4a92&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Nexus Repository Manager OSS 3.x&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;本文档基于oss3.x版本编写，包含maven私服和npm私服的配置&lt;/p&gt;
+&lt;h3 id=&quot;私服默认账户&quot;&gt;&lt;a href=&quot;#私服默认账户&quot; class=&quot;headerlink&quot; title=&quot;私服默认账户&quot;&gt;&lt;/a&gt;私服默认账户&lt;/h3&gt;&lt;p&gt;admin/admin123&lt;/p&gt;
+&lt;h3 id=&quot;一、Maven私服搭建&quot;&gt;&lt;a href=&quot;#一、Maven私服搭建&quot; class=&quot;headerlink&quot; title=&quot;一、Maven私服搭建&quot;&gt;&lt;/a&gt;一、Maven私服搭建&lt;/h3&gt;&lt;h4 id=&quot;1-配置用户权限（网页操作）&quot;&gt;&lt;a href=&quot;#1-配置用户权限（网页操作）&quot; class=&quot;headerlink&quot; title=&quot;1. 配置用户权限（网页操作）&quot;&gt;&lt;/a&gt;1. 配置用户权限（网页操作）&lt;/h4&gt;&lt;h4 id=&quot;2-配置settings-xml&quot;&gt;&lt;a href=&quot;#2-配置settings-xml&quot; class=&quot;headerlink&quot; title=&quot;2. 配置settings.xml&quot;&gt;&lt;/a&gt;2. 配置settings.xml&lt;/h4&gt;
+    
+    </summary>
+    
+      <category term="常用软件部署参考文档" scheme="https://flyingpigqaq.github.io/categories/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E9%83%A8%E7%BD%B2%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3/"/>
+    
+    
+      <category term="nexus" scheme="https://flyingpigqaq.github.io/tags/nexus/"/>
+    
+      <category term="npm私服搭建" scheme="https://flyingpigqaq.github.io/tags/npm%E7%A7%81%E6%9C%8D%E6%90%AD%E5%BB%BA/"/>
+    
+      <category term="maven私服搭建" scheme="https://flyingpigqaq.github.io/tags/maven%E7%A7%81%E6%9C%8D%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Top命令参考指南</title>
+    <link href="https://flyingpigqaq.github.io/2019/02/26/Top%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83%E6%8C%87%E5%8D%97/"/>
+    <id>https://flyingpigqaq.github.io/2019/02/26/Top命令参考指南/</id>
+    <published>2019-02-26T05:38:05.000Z</published>
+    <updated>2019-03-27T01:29:40.129Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Top命令是系统性能监控和瓶颈分析的优秀工具。&lt;br&gt;本节内容着重讲述top命令面板和一些常用的参数。&lt;br&gt;最后欢迎大家在评论区积极维护补充。  &lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Linux参考指南" scheme="https://flyingpigqaq.github.io/categories/Linux%E5%8F%82%E8%80%83%E6%8C%87%E5%8D%97/"/>
+    
+    
+      <category term="Linux" scheme="https://flyingpigqaq.github.io/tags/Linux/"/>
+    
+      <category term="Shell" scheme="https://flyingpigqaq.github.io/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>国内镜像源集合</title>
+    <link href="https://flyingpigqaq.github.io/2019/02/02/%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90%E9%9B%86%E5%90%88/"/>
+    <id>https://flyingpigqaq.github.io/2019/02/02/国内镜像源集合/</id>
+    <published>2019-02-02T15:21:08.000Z</published>
+    <updated>2019-03-27T01:27:01.107Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;某些已知原因导致大家在下载镜像文件的时候会特别慢，国内大厂通过自己搭建私服&lt;br&gt;并颇为友善的将其分享出来，下面是我搜集的各种有效的镜像地址，欢迎大家留言补充。  &lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="常用IT网址" scheme="https://flyingpigqaq.github.io/categories/%E5%B8%B8%E7%94%A8IT%E7%BD%91%E5%9D%80/"/>
+    
+    
+      <category term="镜像源" scheme="https://flyingpigqaq.github.io/tags/%E9%95%9C%E5%83%8F%E6%BA%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GoGoGo</title>
+    <link href="https://flyingpigqaq.github.io/2019/02/02/Hello-World/"/>
+    <id>https://flyingpigqaq.github.io/2019/02/02/Hello-World/</id>
+    <published>2019-02-02T12:00:45.000Z</published>
+    <updated>2019-03-11T06:40:04.704Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;新的征程，新的开始&quot;&gt;&lt;a href=&quot;#新的征程，新的开始&quot; class=&quot;headerlink&quot; title=&quot;新的征程，新的开始&quot;&gt;&lt;/a&gt;新的征程，新的开始&lt;/h3&gt;&lt;p&gt;2019年，又是新的一年。拖拖踏踏了好久的博客终于被我磨磨唧唧的弄出来了。想说的很多
+      
+    
+    </summary>
+    
+      <category term="新的开始" scheme="https://flyingpigqaq.github.io/categories/%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/"/>
+    
+    
+      <category term="个人随语" scheme="https://flyingpigqaq.github.io/tags/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E8%AF%AD/"/>
+    
+  </entry>
+  
+</feed>
