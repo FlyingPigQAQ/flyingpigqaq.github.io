@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://flyingpigqaq.github.io/"/>
-  <updated>2019-03-27T09:01:16.758Z</updated>
+  <updated>2019-05-15T02:00:49.991Z</updated>
   <id>https://flyingpigqaq.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker for Mysql升级</title>
+    <link href="https://flyingpigqaq.github.io/2019/05/15/Docker2Mysql/"/>
+    <id>https://flyingpigqaq.github.io/2019/05/15/Docker2Mysql/</id>
+    <published>2019-05-15T01:53:00.000Z</published>
+    <updated>2019-05-15T02:00:49.991Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文基于Mysql5.6–&amp;gt;mysql8.0，介绍数据迁移的过程和工具的简单实用，具体原理并未涉及。&lt;br&gt;&lt;/p&gt;&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="常用软件部署参考文档" scheme="https://flyingpigqaq.github.io/categories/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E9%83%A8%E7%BD%B2%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3/"/>
+    
+    
+      <category term="docker" scheme="https://flyingpigqaq.github.io/tags/docker/"/>
+    
+      <category term="mysql" scheme="https://flyingpigqaq.github.io/tags/mysql/"/>
+    
+      <category term="升级" scheme="https://flyingpigqaq.github.io/tags/%E5%8D%87%E7%BA%A7/"/>
+    
+  </entry>
   
   <entry>
     <title>Unicode编码表</title>
@@ -93,7 +118,7 @@
     <link href="https://flyingpigqaq.github.io/2019/02/02/%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90%E9%9B%86%E5%90%88/"/>
     <id>https://flyingpigqaq.github.io/2019/02/02/国内镜像源集合/</id>
     <published>2019-02-02T15:21:08.000Z</published>
-    <updated>2019-03-27T01:27:01.107Z</updated>
+    <updated>2019-05-14T02:04:38.825Z</updated>
     
     <summary type="html">
     
@@ -115,7 +140,7 @@
     <link href="https://flyingpigqaq.github.io/2019/02/02/Hello-World/"/>
     <id>https://flyingpigqaq.github.io/2019/02/02/Hello-World/</id>
     <published>2019-02-02T12:00:45.000Z</published>
-    <updated>2019-03-11T06:40:04.704Z</updated>
+    <updated>2019-05-14T02:04:38.824Z</updated>
     
     <summary type="html">
     

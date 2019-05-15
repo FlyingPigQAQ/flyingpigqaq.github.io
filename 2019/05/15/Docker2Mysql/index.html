@@ -2,28 +2,28 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>GoGoGo - 想飞的猪猪</title>
+<title>Docker for Mysql升级 - 想飞的猪猪</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
 
-    <meta name="description" content="新的征程，新的开始2019年，又是新的一年。拖拖踏踏了好久的博客终于被我磨磨唧唧的弄出来了。想说的很多，却习惯性的语塞，就像我遇到喜欢的女孩子不敢表白一样。扯远了…新年一般是需要立flag的，那就是先把手头的书给看完，然后工资最起码翻个翻，哈哈哈。">
-<meta name="keywords" content="个人随语">
+    <meta name="description" content="本文基于Mysql5.6–&amp;gt;mysql8.0，介绍数据迁移的过程和工具的简单实用，具体原理并未涉及。">
+<meta name="keywords" content="docker,mysql,升级">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GoGoGo">
-<meta property="og:url" content="https://flyingpigqaq.github.io/2019/02/02/Hello-World/index.html">
+<meta property="og:title" content="Docker for Mysql升级">
+<meta property="og:url" content="https://flyingpigqaq.github.io/2019/05/15/Docker2Mysql/index.html">
 <meta property="og:site_name" content="想飞的猪猪">
-<meta property="og:description" content="新的征程，新的开始2019年，又是新的一年。拖拖踏踏了好久的博客终于被我磨磨唧唧的弄出来了。想说的很多，却习惯性的语塞，就像我遇到喜欢的女孩子不敢表白一样。扯远了…新年一般是需要立flag的，那就是先把手头的书给看完，然后工资最起码翻个翻，哈哈哈。">
+<meta property="og:description" content="本文基于Mysql5.6–&amp;gt;mysql8.0，介绍数据迁移的过程和工具的简单实用，具体原理并未涉及。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-14T02:04:38.824Z">
+<meta property="og:updated_time" content="2019-05-15T02:00:49.991Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GoGoGo">
-<meta name="twitter:description" content="新的征程，新的开始2019年，又是新的一年。拖拖踏踏了好久的博客终于被我磨磨唧唧的弄出来了。想说的很多，却习惯性的语塞，就像我遇到喜欢的女孩子不敢表白一样。扯远了…新年一般是需要立flag的，那就是先把手头的书给看完，然后工资最起码翻个翻，哈哈哈。">
+<meta name="twitter:title" content="Docker for Mysql升级">
+<meta name="twitter:description" content="本文基于Mysql5.6–&amp;gt;mysql8.0，介绍数据迁移的过程和工具的简单实用，具体原理并未涉及。">
 
 
 
-<link rel="alternative" href="/atom.xml" title="GoGoGo" type="application/atom+xml">
+<link rel="alternative" href="/atom.xml" title="Docker for Mysql升级" type="application/atom+xml">
 
 
 
@@ -143,17 +143,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-02-02T12:00:45.000Z">2019-02-02</time>
+                <time class="level-item has-text-grey" datetime="2019-05-15T01:53:00.000Z">2019-05-15</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/新的开始/">新的开始</a>
+                <a class="has-link-grey -link" href="/categories/常用软件部署参考文档/">常用软件部署参考文档</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    1 分钟 读完 (大约 116 个字)
+                    3 分钟 读完 (大约 518 个字)
                 </span>
                 
                 
@@ -167,11 +167,27 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                GoGoGo
+                Docker for Mysql升级
             
         </h1>
         <div class="content">
-            <h3 id="新的征程，新的开始"><a href="#新的征程，新的开始" class="headerlink" title="新的征程，新的开始"></a>新的征程，新的开始</h3><p>2019年，又是新的一年。拖拖踏踏了好久的博客终于被我磨磨唧唧的弄出来了。想说的很多，却习惯性的语塞，就像我遇到喜欢的女孩子不敢表白一样。扯远了…新年一般是需要立flag的，那就是先把手头的书给看完，然后工资最起码翻个翻，哈哈哈。</p>
+            <blockquote>
+<p>本文基于Mysql5.6–&gt;mysql8.0，介绍数据迁移的过程和工具的简单实用，具体原理并未涉及。<br><a id="more"></a></p>
+</blockquote>
+<h4 id="一、数据导出备份"><a href="#一、数据导出备份" class="headerlink" title="一、数据导出备份"></a>一、数据导出备份</h4><blockquote>
+<p>命令加粗的地方需要根据实际填写。<br>OLDER_DOCKER_MYSQL_CONTAINER_NAME:要导出的mysql容器名称。<br>EXPORT_DATABASE_NAME：要导出的数据库名称，多个数据库用空格分割。<br>LOCAL_EXPORT_PATH：将导出文件保存到本地文件系统的地址。  </p>
+</blockquote>
+<p><code>docker exec **OLDER_DOCKER_MYSQL_CONTAINER_NAME** sh -c &#39;exec mysqldump -uroot -p&quot;$MYSQL_ROOT_PASSWORD&quot; --databases **EXPORT_DATABASE_NAME** &#39;  &gt; **LOCAL_EXPORT_PATH**</code></p>
+<h5 id="案例："><a href="#案例：" class="headerlink" title="案例："></a>案例：</h5><pre><code class="shell">docker exec mysql sh -c 'exec mysqldump -uroot -p"$MYSQL_ROOT_PASSWORD" --databases bee-order bee-product cms flower interesting leetcode niuke niukewang qms_local ry spider '  &gt; /Users/tobbyquinn/docker/mysql8/all-databases.sql
+</code></pre>
+<h5 id="涉及到的坑"><a href="#涉及到的坑" class="headerlink" title="涉及到的坑"></a>涉及到的坑</h5><p>mysql5.X 和 mysql8.0 的系统表结构发生了一些变化，所以在使用 mysqldump 命令时，不能使用<code>--all-databses</code><strong>(全部数据库导出参数)</strong>,需要先排除mysql等系统数据库，mysqldump 命令并未提供 exclude 选项<strong>(本文写作时未提供)</strong>,需要大家一个个写，当然也可以通过脚本代替该笨重方法</p>
+<h4 id="二、安装新MYSQL版本容器-并自动恢复数据库数据"><a href="#二、安装新MYSQL版本容器-并自动恢复数据库数据" class="headerlink" title="二、安装新MYSQL版本容器,并自动恢复数据库数据"></a>二、安装新MYSQL版本容器,并自动恢复数据库数据</h4><blockquote>
+<p>大多参数属于docker run，不会的可以参考<a href="https://docs.docker.com/engine/reference/run/" target="_blank" rel="noopener">官方文档</a>。<br>着重讲下初始化导出数据库参数 -v：将本地导出文件的路径映射到/docker-entrypoint-initdb.d容器路径即可,在安装完数据库后，会自动加载导出数据数据。<br><strong>注意:导出文件的格式必须为.sh, .sql and .sql.gz这几种才会自动加载!!!</strong>  </p>
+</blockquote>
+<p>docker run -it –name <strong>NEW_DOCKER_MYSQL_CONTAINER_NAME</strong> -p 3306:3306 -v <strong>LOCAL_EXPORT_PATH</strong>:/docker-entrypoint-initdb.d -e MYSQL_ROOT_PASSWORD=root -d <strong>MSYQL_DOCKER_VERSION</strong> –character-set-server=utf8mb4 –collation-server=utf8mb4_unicode_ci  </p>
+<h5 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h5><pre><code class="shell">docker run -it --name mysql8 -p 3306:3306 -v /Users/tobbyquinn/docker/mysql8/:/docker-entrypoint-initdb.d -e MYSQL_ROOT_PASSWORD=root -d mysql:8.0 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+</code></pre>
+<h4 id="三、参考链接"><a href="#三、参考链接" class="headerlink" title="三、参考链接"></a>三、参考链接</h4><p><a href="https://hub.docker.com/_/mysql" target="_blank" rel="noopener">docker_mysql</a><br><a href="https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html" target="_blank" rel="noopener">mysqldump docs</a></p>
 
         </div>
         
@@ -179,7 +195,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/个人随语/">个人随语</a>
+                    <a class="has-link-grey -link" href="/tags/docker/">docker</a>, <a class="has-link-grey -link" href="/tags/mysql/">mysql</a>, <a class="has-link-grey -link" href="/tags/升级/">升级</a>
                 </div>
             </div>
         </div>
@@ -196,13 +212,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/02/02/国内镜像源集合/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">国内镜像源集合</span>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/03/26/Unicode编码表/">
+                <span class="level-item">Unicode编码表</span>
+                <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
-        
         
     </div>
 </div>
@@ -221,7 +237,7 @@
     var gitalk = new Gitalk({
         clientID: '61c96244d9cd07cd6b1c',
         clientSecret: '0a775de1c50c99d9b3f218b0cae5ad79cb86f183',
-        id: '/2019/02/02/Hello-World/',
+        id: '/2019/05/15/Docker2Mysql/',
         repo: 'flyingpigqaq.github.io',
         owner: 'FlyingPigQAQ',
         admin: "FlyingPigQAQ"
