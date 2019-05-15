@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="想飞的猪猪">
 <meta property="og:description" content="本文基于Mysql5.6–&amp;gt;mysql8.0，介绍数据迁移的过程和工具的简单实用，具体原理并未涉及。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-15T02:00:49.991Z">
+<meta property="og:updated_time" content="2019-05-15T02:03:09.763Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker for Mysql升级">
 <meta name="twitter:description" content="本文基于Mysql5.6–&amp;gt;mysql8.0，介绍数据迁移的过程和工具的简单实用，具体原理并未涉及。">
@@ -177,7 +177,7 @@
 <h4 id="一、数据导出备份"><a href="#一、数据导出备份" class="headerlink" title="一、数据导出备份"></a>一、数据导出备份</h4><blockquote>
 <p>命令加粗的地方需要根据实际填写。<br>OLDER_DOCKER_MYSQL_CONTAINER_NAME:要导出的mysql容器名称。<br>EXPORT_DATABASE_NAME：要导出的数据库名称，多个数据库用空格分割。<br>LOCAL_EXPORT_PATH：将导出文件保存到本地文件系统的地址。  </p>
 </blockquote>
-<p><code>docker exec **OLDER_DOCKER_MYSQL_CONTAINER_NAME** sh -c &#39;exec mysqldump -uroot -p&quot;$MYSQL_ROOT_PASSWORD&quot; --databases **EXPORT_DATABASE_NAME** &#39;  &gt; **LOCAL_EXPORT_PATH**</code></p>
+<p>docker exec <strong>OLDER_DOCKER_MYSQL_CONTAINER_NAME</strong> sh -c ‘exec mysqldump -uroot -p”$MYSQL_ROOT_PASSWORD” –databases <strong>EXPORT_DATABASE_NAME</strong> ‘  &gt; <strong>LOCAL_EXPORT_PATH</strong></p>
 <h5 id="案例："><a href="#案例：" class="headerlink" title="案例："></a>案例：</h5><pre><code class="shell">docker exec mysql sh -c 'exec mysqldump -uroot -p"$MYSQL_ROOT_PASSWORD" --databases bee-order bee-product cms flower interesting leetcode niuke niukewang qms_local ry spider '  &gt; /Users/tobbyquinn/docker/mysql8/all-databases.sql
 </code></pre>
 <h5 id="涉及到的坑"><a href="#涉及到的坑" class="headerlink" title="涉及到的坑"></a>涉及到的坑</h5><p>mysql5.X 和 mysql8.0 的系统表结构发生了一些变化，所以在使用 mysqldump 命令时，不能使用<code>--all-databses</code><strong>(全部数据库导出参数)</strong>,需要先排除mysql等系统数据库，mysqldump 命令并未提供 exclude 选项<strong>(本文写作时未提供)</strong>,需要大家一个个写，当然也可以通过脚本代替该笨重方法</p>
