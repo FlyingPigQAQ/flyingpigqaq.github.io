@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://flyingpigqaq.github.io/"/>
-  <updated>2019-05-15T02:03:09.763Z</updated>
+  <updated>2019-05-16T02:58:33.360Z</updated>
   <id>https://flyingpigqaq.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Github利器之Travis</title>
+    <link href="https://flyingpigqaq.github.io/2019/05/16/Github%E5%88%A9%E5%99%A8%E4%B9%8BTravis/"/>
+    <id>https://flyingpigqaq.github.io/2019/05/16/Github利器之Travis/</id>
+    <published>2019-05-16T02:29:55.000Z</published>
+    <updated>2019-05-16T02:58:33.360Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Travis&quot;&gt;&lt;a href=&quot;#Travis&quot; class=&quot;headerlink&quot; title=&quot;Travis&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://travis-ci.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Travis&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;travis自动给github repository增加了hook钩子,可以为仓库的每次更新进行编译或者自动发布。&lt;br&gt;&lt;strong&gt;目前免费提供服务给github公共仓库,如果仓库是私有的是不提供免费服务的&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&quot;travis-cli安装&quot;&gt;&lt;a href=&quot;#travis-cli安装&quot; class=&quot;headerlink&quot; title=&quot;travis-cli安装&quot;&gt;&lt;/a&gt;travis-cli安装&lt;/h3&gt;&lt;p&gt;travis-cli提供了对github person token的加密，防止发布到github repository时候，token泄露，所以使用该组件&lt;br&gt;是很有必要的&lt;/p&gt;
+&lt;h4 id=&quot;安装步骤&quot;&gt;&lt;a href=&quot;#安装步骤&quot; class=&quot;headerlink&quot; title=&quot;安装步骤&quot;&gt;&lt;/a&gt;安装步骤&lt;/h4&gt;
+    
+    </summary>
+    
+      <category term="github" scheme="https://flyingpigqaq.github.io/categories/github/"/>
+    
+    
+      <category term="github" scheme="https://flyingpigqaq.github.io/tags/github/"/>
+    
+      <category term="travis" scheme="https://flyingpigqaq.github.io/tags/travis/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker for Mysql升级</title>
