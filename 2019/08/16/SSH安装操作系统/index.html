@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>SSH安装操作系统 - 想飞的猪猪</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="baidu-site-verification" content="dVh2DqtbTr">
+
+
+
+    <meta name="description" content="前提条件当前服务器的可用内存必须为2g及以上，同时安装有网卡 1. 安装 VNC Viewer Don’t use proxy(或者明确必须使用代理才能连接)  2. 挂载系统镜像，并提供http服务mount -t iso9660 -o loop CentOS-7-x86_64-DVD-1611.iso /app/apache2/htdocs/iso/">
+<meta name="keywords" content="Linux,SSH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSH安装操作系统">
+<meta property="og:url" content="https://www.pigcanflyqaq.com/2019/08/16/SSH安装操作系统/index.html">
+<meta property="og:site_name" content="想飞的猪猪">
+<meta property="og:description" content="前提条件当前服务器的可用内存必须为2g及以上，同时安装有网卡 1. 安装 VNC Viewer Don’t use proxy(或者明确必须使用代理才能连接)  2. 挂载系统镜像，并提供http服务mount -t iso9660 -o loop CentOS-7-x86_64-DVD-1611.iso /app/apache2/htdocs/iso/">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-16T02:47:34.103Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SSH安装操作系统">
+<meta name="twitter:description" content="前提条件当前服务器的可用内存必须为2g及以上，同时安装有网卡 1. 安装 VNC Viewer Don’t use proxy(或者明确必须使用代理才能连接)  2. 挂载系统镜像，并提供http服务mount -t iso9660 -o loop CentOS-7-x86_64-DVD-1611.iso /app/apache2/htdocs/iso/">
+
+
+
+<link rel="alternative" href="/atom.xml" title="SSH安装操作系统" type="application/atom+xml">
+
+
+
+<link rel="icon" href="/images/favicon.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                想飞的猪er~
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+                <a class="navbar-item" href="/whoami">Whoami</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-12-tablet is-12-desktop is-12-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-16T02:44:42.000Z">2019-08-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Linux参考指南/">Linux参考指南</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 分钟 读完 (大约 1080 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                SSH安装操作系统
+            
+        </h1>
+        <div class="content">
+            <h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><p>当前服务器的可用内存必须为2g及以上，同时安装有网卡</p>
+<h3 id="1-安装-VNC-Viewer"><a href="#1-安装-VNC-Viewer" class="headerlink" title="1. 安装 VNC Viewer"></a>1. 安装 <a href="https://www.realvnc.com/en/connect/download/viewer/macos/" target="_blank" rel="noopener">VNC Viewer</a></h3><blockquote>
+<p>Don’t use proxy(或者明确必须使用代理才能连接)</p>
+</blockquote>
+<h3 id="2-挂载系统镜像，并提供http服务"><a href="#2-挂载系统镜像，并提供http服务" class="headerlink" title="2. 挂载系统镜像，并提供http服务"></a>2. 挂载系统镜像，并提供http服务</h3><p>mount -t iso9660 -o loop CentOS-7-x86_64-DVD-1611.iso /app/apache2/htdocs/iso/<br><a id="more"></a></p>
+<h3 id="3-查看当前服务器可用网卡接口，ip和网关"><a href="#3-查看当前服务器可用网卡接口，ip和网关" class="headerlink" title="3. 查看当前服务器可用网卡接口，ip和网关"></a>3. 查看当前服务器可用网卡接口，ip和网关</h3><p>查看default，示例如下：</p>
+<ul>
+<li>网关：10.1.105.254</li>
+<li>ip:  10.1.105.172</li>
+<li>网卡接口：eth1</li>
+</ul>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@RedHat422c3e grub]# ip route show</span><br><span class="line">10.1.105.0/24 dev eth1  proto kernel  scope link  src 10.1.105.172</span><br><span class="line">169.254.0.0/16 dev eth1  scope link  metric 1002</span><br><span class="line">default via 10.1.105.254 dev eth1  proto static</span><br></pre></td></tr></table></figure>
+<h3 id="4-下载系统镜像到-boot分区"><a href="#4-下载系统镜像到-boot分区" class="headerlink" title="4. 下载系统镜像到/boot分区"></a>4. 下载系统镜像到/boot分区</h3><blockquote>
+<p>默认即为/boot路径，相关内核文件以此目录为根目录</p>
+</blockquote>
+<p>相关文件命名方式无固定要求<br><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /boot</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"><span class="hljs-comment"># 下载相关内核文件</span></span></span><br><span class="line">wget http://10.1.105.169:8081/iso/images/pxeboot/initrd.img -O initrd-7</span><br><span class="line">wget http://10.1.105.169:8081/iso/images/pxeboot/vmlinuz -O vmlinuz-7</span><br></pre></td></tr></table></figure></p>
+<h3 id="5-Grub和Grub2两种方式安装-根据操作系统来默认的grub版本选择对应的安装方式即可"><a href="#5-Grub和Grub2两种方式安装-根据操作系统来默认的grub版本选择对应的安装方式即可" class="headerlink" title="5. Grub和Grub2两种方式安装(根据操作系统来默认的grub版本选择对应的安装方式即可)"></a>5. Grub和Grub2两种方式安装(根据操作系统来默认的grub版本选择对应的安装方式即可)</h3><h4 id="Grub安装操作系统"><a href="#Grub安装操作系统" class="headerlink" title="Grub安装操作系统"></a>Grub安装操作系统</h4><ol>
+<li>编辑menu.lst文件<br>以下相关文件配置参数根据实际情况更改<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vi /boot/grub/menu.lst</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">添加配置</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"><span class="hljs-comment"># 如果安装centos6以及以下版本使用该配置</span></span></span><br><span class="line">title Red Hat Enterprise Linux 6.8</span><br><span class="line">  root (hd0,0)</span><br><span class="line">  kernel /vmlinuz-6 vnc vncpassword=ncl@1234 headless ip=192.168.1.129 netmask=255.255.255.0 gateway=192.168.1.1 nameserver=8.8.8.8 hostname=ct6 ksdevice=eth0 repo=http://10.1.105.169:8081/iso6/ lang=en_US keymap=us</span><br><span class="line">  initrd /initrd-6</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"><span class="hljs-comment"># 如果安装centos7以及以上版本使用该配置</span></span></span><br><span class="line">title Red Hat Enterprise Linux 7</span><br><span class="line">  root (hd0,0)</span><br><span class="line">  kernel /vmlinuz-7 inst.vnc inst.vncpassword=ncl@1234 inst.headless ip=192.168.1.105::192.168.1.1:255.255.255.0::eth0:none  inst.nameserver=8.8.8.8  inst.repo=http://192.168.1.107/centos7/ inst.lang=en_US inst.keymap=us</span><br><span class="line">  initrd /initrd-7</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">修改default默认配置，根据实际位置选择。此参数代表了titile在文件中是第几个配置，下标从0开始。</span></span><br><span class="line">default=1</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="Grub2安装操作系统"><a href="#Grub2安装操作系统" class="headerlink" title="Grub2安装操作系统"></a>Grub2安装操作系统</h4><ol>
+<li><p>编辑40_custom文件</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/grub.d/40_custom</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"><span class="hljs-comment"># 修改 menu entry title, the linux16, initrd16.</span></span></span><br><span class="line">menuentry 'Linux 7' --class centos --class gnu-linux --class gnu --class os --unrestricted $menuentry_id_option 'gnulinux-3.10.0-862.6.3.el7.x86_64-advanced-916c887d-0b28-4f0f-bd21-d94a9f3727d6' &#123;</span><br><span class="line">  load_video</span><br><span class="line">  set gfxpayload=keep</span><br><span class="line">  insmod gzio</span><br><span class="line">  insmod part_msdos</span><br><span class="line">  insmod xfs</span><br><span class="line">  set root='hd0,msdos1'</span><br><span class="line">  if [ x$feature_platform_search_hint = xy ]; then</span><br><span class="line">    search --no-floppy --fs-uuid --set=root --hint-bios=hd0,msdos1 --hint-efi=hd0,msdos1 --hint-baremetal=ahci0,msdos1 --hint='hd0,msdos1'  135d8c7b-50f6-4253-b0a4-46028a06391e</span><br><span class="line">  else</span><br><span class="line">    search --no-floppy --fs-uuid --set=root 135d8c7b-50f6-4253-b0a4-46028a06391e</span><br><span class="line">  fi</span><br><span class="line">  linux16 /vmlinuz-7 inst.vnc inst.vncpassword=ncl@1234 inst.headless ip=192.168.1.129::192.168.1.1:255.255.255.0::eth0:none  inst.nameserver=8.8.8.8  inst.repo=http://10.1.105.169:8081/isoFinal/ inst.lang=en_US inst.keymap=us</span><br><span class="line">  initrd16 /initrd-7</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改grub文件的GRUB_DEFAULT值</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/default/grub</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"><span class="hljs-comment">#change GRUB_DEFAULT=0 to GRUB_DEFAULT=saved</span></span></span><br><span class="line">GRUB_DEFAULT=saved</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保存所有配置</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> rebuilt the grub.cfg</span></span><br><span class="line">grub2-mkconfig -o /boot/grub2/grub.cfg</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> list available menu entry</span></span><br><span class="line">awk -F\' '$1=="menuentry " &#123;print $2&#125;' /etc/grub2.cfg</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> verify the default menu entry.</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> you can use grub2-set-default <span class="hljs-string">'MenuEntry'</span></span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> to change the default boot</span></span><br><span class="line">grub2-editenv list</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> change default menu entry,replace MENU_ENTRY to your own.</span></span><br><span class="line">grub2-set-default MENU_ENTRY</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> boot our new menu entry <span class="hljs-keyword">for</span> the next reboot.</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> We just need to use the menu entry title.</span></span><br><span class="line">grub2-reboot NetInstall</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="6-重启"><a href="#6-重启" class="headerlink" title="6. 重启"></a>6. 重启</h3><p>reboot -n now</p>
+<h3 id="7-ping服务器IP-ping通后使用vncviewer连接IP-1"><a href="#7-ping服务器IP-ping通后使用vncviewer连接IP-1" class="headerlink" title="7. ping服务器IP.ping通后使用vncviewer连接IP:1"></a>7. ping服务器IP.ping通后使用vncviewer连接IP:1</h3><p>操作VNC的相关日志，会在对应服务器的显示屏输出</p>
+<h2 id="相关注意事项"><a href="#相关注意事项" class="headerlink" title="相关注意事项"></a>相关注意事项</h2><ol>
+<li>NetInstall 包是不包含仓库资源文件。</li>
+<li>当安装过程出现dracut-initqueue timeout警告，/dev/root does not exist，直接查找网络，大多数原因是使用的网卡和配置的不一致。</li>
+<li>使用vmvare虚拟机安装操作系统，因为有的vmvare版本的问题，导致使用的网卡和实际不一致，可以通过添加以下两个参数，<code>net.ifnames=0  biosdevname=0</code>(该0与实际的网卡一致，eth0则为0，eth1则为1…)</li>
+</ol>
+<h2 id="安装过程调试"><a href="#安装过程调试" class="headerlink" title="安装过程调试"></a>安装过程调试</h2><p>kernel启动参数中添加断点如下: <code>rd.break=initqueue</code><br>ip addr看加载的网卡是否正确</p>
+<h2 id="安装指令解释"><a href="#安装指令解释" class="headerlink" title="安装指令解释"></a>安装指令解释</h2><p>net.ifnames=0 biosdevname=0（使用eth0）</p>
+<blockquote>
+<p>it was a requirement that the system use old style ethN interface names. If you want the new consistent naming then you may have to figure out how to provide interface to the ip stanza<br>  ip=address::gateway:netmask:hostname:interface:method<br>  ip=address::gateway:metmask:hostname::none 省略接口</p>
+</blockquote>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/chap-anaconda-boot-options#sect-boot-options-installer" target="_blank" rel="noopener">Redhat Boot Options Docs</a></li>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/index" target="_blank" rel="noopener">Redhat Installation Guide</a></li>
+<li><a href="https://www.danpros.com/2016/02/how-to-install-centos-7-remotely-using-vnc" target="_blank" rel="noopener">Grub2 Install Centos7</a></li>
+<li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-consistent_network_device_naming_using_biosdevname" target="_blank" rel="noopener">biosdevname docs</a></li>
+<li><a href="https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/7/html/installation_guide/chap-installation-server-setup" target="_blank" rel="noopener">PXE Installation Docs</a></li>
+</ul>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Linux/">Linux</a>, <a class="has-link-grey -link" href="/tags/SSH/">SSH</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/05/16/Github利器之Travis/">
+                <span class="level-item">Github利器之Travis</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.min.js"></script>
+<script>
+
+    var gitalk = new Gitalk({
+        clientID: 'a7df259dd175b6e97a18',
+        clientSecret: '8763bdfbc37cda7ff668f08233948e466b2603b0',
+        id: '/2019/08/16/SSH安装操作系统/',
+        repo: 'flyingpigqaq.github.io',
+        owner: 'FlyingPigQAQ',
+        admin: "FlyingPigQAQ"
+    })
+    gitalk.render('comment-container')
+</script>
+
+<!-- <!-- //id: ' md5(page.path) ', -->
+    </div>
+</div>
+</div>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    想飞的猪er~
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 FlyingPigQAQ&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+<script>[].slice.call(document.querySelectorAll('table')).forEach(function(el){
+        var wrapper = document.createElement('div');
+        wrapper.className = 'table-area';
+        el.parentNode.insertBefore(wrapper, el);
+        el.parentNode.removeChild(el);
+        wrapper.appendChild(el);
+    })</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
