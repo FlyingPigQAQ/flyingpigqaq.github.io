@@ -167,6 +167,15 @@
 <h3 id="关于小站"><a href="#关于小站" class="headerlink" title="关于小站"></a>关于小站</h3><p>不得不赞叹下这个全球最大的同性交友网站github给我提供的便利，免费试用域名和服务器，各位看官也可以试用下github page功能，蛮有意思。<br>最后欢迎各位大牛，大神对我的指导，有不对的地方您说话，反正我是不会改的。。。</p>
 <h3 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h3><p>邮箱: <a href="mailto:samudaodan@126.com" target="_blank" rel="noopener">samudaodan@126.com</a><br><img src="/img/contact_wechat.png" width="30%" height="30%"></p>
 
+<div id="gitalk-container"></div>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+		<script>
+		var gitalkConfig = {"clientID":"a7df259dd175b6e97a18","clientSecret":"8763bdfbc37cda7ff668f08233948e466b2603b0","repo":"FlyingPigQAQ","owner":"FlyingPigQAQ","admin":["FlyingPigQAQ"],"distractionFreeMode":false};
+	    gitalkConfig.id = md5(location.pathname);
+		var gitalk = new Gitalk(gitalkConfig);
+	    gitalk.render("gitalk-container");
+	    </script>
         </div>
         
         
@@ -179,30 +188,6 @@
 
 
 
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">评论</h3>
-        
-<div id="comment-container"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.min.js"></script>
-<script>
-
-    var gitalk = new Gitalk({
-        clientID: 'a7df259dd175b6e97a18',
-        clientSecret: '8763bdfbc37cda7ff668f08233948e466b2603b0',
-        id: '/whoami/index.html',
-        repo: 'flyingpigqaq.github.io',
-        owner: 'FlyingPigQAQ',
-        admin: "FlyingPigQAQ"
-    })
-    gitalk.render('comment-container')
-</script>
-
-<!-- <!-- //id: ' md5(page.path) ', -->
-    </div>
-</div>
 </div>
                 
                 

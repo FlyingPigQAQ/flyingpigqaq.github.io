@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.pigcanflyqaq.com/"/>
-  <updated>2020-04-20T11:06:24.335Z</updated>
+  <updated>2020-04-20T11:31:42.574Z</updated>
   <id>https://www.pigcanflyqaq.com/</id>
   
   <author>
@@ -21,14 +21,11 @@
     <link href="https://www.pigcanflyqaq.com/2020/04/20/FailedConnectraw-githubusercontent-com/"/>
     <id>https://www.pigcanflyqaq.com/2020/04/20/FailedConnectraw-githubusercontent-com/</id>
     <published>2020-04-20T10:59:31.000Z</published>
-    <updated>2020-04-20T11:06:24.335Z</updated>
+    <updated>2020-04-20T11:31:42.574Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;h3 id=&quot;原由：由于一些政策原因，国内无法正常访问raw-githubusercontent-com。&quot;&gt;&lt;a href=&quot;#原由：由于一些政策原因，国内无法正常访问raw-githubusercontent-com。&quot; class=&quot;headerlink&quot; title=&quot;
-      
+      &lt;h3 id=&quot;原由：由于一些政策原因，国内无法正常访问raw-githubusercontent-com。&quot;&gt;&lt;a href=&quot;#原由：由于一些政策原因，国内无法正常访问raw-githubusercontent-com。&quot; class=&quot;headerlink&quot; title=&quot;原由：由于一些政策原因，国内无法正常访问raw.githubusercontent.com。&quot;&gt;&lt;/a&gt;原由：由于一些政策原因，国内无法正常访问raw.githubusercontent.com。&lt;/h3&gt;&lt;p&gt;解决方式：&lt;br&gt;&lt;code&gt;**添加ip和域名绑定记录**&lt;/code&gt;&lt;br&gt;&lt;figure class=&quot;highlight shell hljs&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;vi /etc/hosts&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;151.101.108.133 raw.githubusercontent.com&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
     
     </summary>
     
