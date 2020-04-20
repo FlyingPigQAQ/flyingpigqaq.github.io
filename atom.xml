@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.pigcanflyqaq.com/"/>
-  <updated>2019-08-16T02:47:34.103Z</updated>
+  <updated>2020-04-20T11:06:24.335Z</updated>
   <id>https://www.pigcanflyqaq.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Failed to connect to raw.githubusercontent.com port 443. Connection refused</title>
+    <link href="https://www.pigcanflyqaq.com/2020/04/20/FailedConnectraw-githubusercontent-com/"/>
+    <id>https://www.pigcanflyqaq.com/2020/04/20/FailedConnectraw-githubusercontent-com/</id>
+    <published>2020-04-20T10:59:31.000Z</published>
+    <updated>2020-04-20T11:06:24.335Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;原由：由于一些政策原因，国内无法正常访问raw-githubusercontent-com。&quot;&gt;&lt;a href=&quot;#原由：由于一些政策原因，国内无法正常访问raw-githubusercontent-com。&quot; class=&quot;headerlink&quot; title=&quot;
+      
+    
+    </summary>
+    
+      <category term="github" scheme="https://www.pigcanflyqaq.com/categories/github/"/>
+    
+    
+      <category term="github" scheme="https://www.pigcanflyqaq.com/tags/github/"/>
+    
+      <category term="常见问题" scheme="https://www.pigcanflyqaq.com/tags/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>SSH安装操作系统</title>
