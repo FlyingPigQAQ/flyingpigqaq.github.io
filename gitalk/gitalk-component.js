@@ -3297,7 +3297,9 @@ var GitalkComponent = function (_Component) {
       }).then(function (res) {
         if (res.data && res.data.access_token) {
           _this.accessToken = res.data.access_token;
-          _this.getUserInfo().getInit().then(function () {
+          _this.getUserInfo().then(function () {
+            return _this.getInit();
+          }).then(function () {
             return _this.setState({ isIniting: false });
           }).catch(function (err) {
             console.log('err:', err);
