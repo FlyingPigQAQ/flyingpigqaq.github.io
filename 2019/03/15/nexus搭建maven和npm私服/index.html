@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
 <title>nexus搭建maven和npm私服 - 想飞的猪猪</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -201,7 +201,7 @@
 <h4 id="3-上传依赖到远程代码库"><a href="#3-上传依赖到远程代码库" class="headerlink" title="3. 上传依赖到远程代码库"></a>3. 上传依赖到远程代码库</h4><blockquote>
 <p>注意：<strong>不能将jar文件或者pom文件指定为本地代码仓库的文件，否则会报错Cannot deploy artifact from the local repository。具体原因待查</strong>  </p>
 </blockquote>
-<h5 id="上传单个依赖到远程代码库"><a href="#上传单个依赖到远程代码库" class="headerlink" title="- 上传单个依赖到远程代码库"></a>- 上传单个依赖到远程代码库</h5><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span>第一种方式</span><br><span class="line">mvn deploy:deploy-file -DgroupId=mysql   -DartifactId=mysql-connector-java   -Dversion=5.1.45   -Dpackaging=jar   -Dfile=/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.jar   -DrepositoryId=sinosoft   -Durl=http://10.1.105.169:8081/repository/maven-releases/</span><br><span class="line"><span class="hljs-meta">#</span>第二种方式</span><br><span class="line">mvn deploy:deploy-file -Durl=http://10.1.105.169:8081/repository/maven-releases/ -Dfile="/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.jar" -DgeneratePom=false -DpomFile="/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.pom"</span><br></pre></td></tr></table></figure>
+<h5 id="上传单个依赖到远程代码库"><a href="#上传单个依赖到远程代码库" class="headerlink" title="- 上传单个依赖到远程代码库"></a>- 上传单个依赖到远程代码库</h5><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">第一种方式</span></span><br><span class="line">mvn deploy:deploy-file -DgroupId=mysql   -DartifactId=mysql-connector-java   -Dversion=5.1.45   -Dpackaging=jar   -Dfile=/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.jar   -DrepositoryId=sinosoft   -Durl=http://10.1.105.169:8081/repository/maven-releases/</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">第二种方式</span></span><br><span class="line">mvn deploy:deploy-file -Durl=http://10.1.105.169:8081/repository/maven-releases/ -Dfile="/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.jar" -DgeneratePom=false -DpomFile="/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.pom"</span><br></pre></td></tr></table></figure>
 <p><font color="blue"><strong>一定记住：url一定要为maven-relases或maven-snapshot,不能为group组如maven-central，否则报错 HTTP.405,PUT method not allowed </strong></font></p>
 <h5 id="上传工程所有依赖到本地代码库"><a href="#上传工程所有依赖到本地代码库" class="headerlink" title="- 上传工程所有依赖到本地代码库"></a>- 上传工程所有依赖到本地代码库</h5><ol>
 <li>导出pom的所有依赖  </li>
@@ -242,18 +242,18 @@
 </blockquote>
 <ol>
 <li><p>配置npm-hosted，存储公司内部依赖  </p>
-<p><img src="/img/nexus-1.png" alt=""><br><img src="/img/nexus-2.jpg" alt="">  </p>
+<p><img src="/img/nexus-1.png" alt><br><img src="/img/nexus-2.jpg" alt>  </p>
 </li>
 <li><p>配置npm-proxy,存储外部镜像源依赖  </p>
-<p><img src="/img/nexus-3.png" alt="">  </p>
+<p><img src="/img/nexus-3.png" alt>  </p>
 </li>
 <li><p>配置npm-group,将以上两个仓库添加进去即可  </p>
-<p><img src="/img/nexus-4.png" alt="">  </p>
+<p><img src="/img/nexus-4.png" alt>  </p>
 </li>
 <li><p>客户端仓库地址填写以下地址即可(如无特殊需求，只需关注group类型)  </p>
-<p><img src="/img/nexus-5.png" alt="">  </p>
+<p><img src="/img/nexus-5.png" alt>  </p>
 </li>
-<li>Realms授权 <code>npm Bearer Token Realm</code><br><img src="/img/nexus-7.png" alt="">  </li>
+<li>Realms授权 <code>npm Bearer Token Realm</code><br><img src="/img/nexus-7.png" alt>  </li>
 </ol>
 <h4 id="Npm发布内部依赖到私服"><a href="#Npm发布内部依赖到私服" class="headerlink" title="Npm发布内部依赖到私服"></a>Npm发布内部依赖到私服</h4><blockquote>
 <p>一定要记住发布包到 hosted 仓库位置  </p>
@@ -279,7 +279,7 @@ npm login  --registry=http://192.168.180.194:8082/repository/npm-private/
 <script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
 		<script>
-		var gitalkConfig = {"clientID":"a7df259dd175b6e97a18","clientSecret":"8763bdfbc37cda7ff668f08233948e466b2603b0","repo":"FlyingPigQAQ","owner":"FlyingPigQAQ","admin":["FlyingPigQAQ"],"distractionFreeMode":false};
+		var gitalkConfig = {"clientID":"a7df259dd175b6e97a18","clientSecret":"8763bdfbc37cda7ff668f08233948e466b2603b0","repo":"gitalk.css gitalk.js gitalk-component.js","owner":"FlyingPigQAQ","admin":["FlyingPigQAQ"],"distractionFreeMode":false};
 	    gitalkConfig.id = md5(location.pathname);
 		var gitalk = new Gitalk(gitalkConfig);
 	    gitalk.render("gitalk-container");
