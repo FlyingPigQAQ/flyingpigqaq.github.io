@@ -3275,11 +3275,6 @@ var GitalkComponent = function (_Component) {
     }
 
     var query = (0, _util.queryParse)();
-    console.log(window.location.origin);
-    console.log(window.location.pathname);
-    console.log(window.location.hash);
-    console.log('获取Query');
-    console.log(query.code);
     if (query.code) {
       var code = query.code;
       delete query.code;
@@ -3297,9 +3292,7 @@ var GitalkComponent = function (_Component) {
       }).then(function (res) {
         if (res.data && res.data.access_token) {
           _this.accessToken = res.data.access_token;
-          _this.getUserInfo().then(function () {
-            return _this.getInit();
-          }).then(function () {
+          _this.getInit().then(function () {
             return _this.setState({ isIniting: false });
           }).catch(function (err) {
             console.log('err:', err);
@@ -3325,7 +3318,6 @@ var GitalkComponent = function (_Component) {
         });
       });
     } else {
-      console.log('初始化');
       _this.getInit().then(function () {
         return _this.setState({ isIniting: false });
       }).catch(function (err) {
@@ -3352,7 +3344,13 @@ var GitalkComponent = function (_Component) {
     value: function getInit() {
       var _this2 = this;
 
-      // return this.getUserInfo().then(() => this.getIssue()).then(issue => this.getComments(issue))
+      if (this.accessToken) {
+        return this.getUserInfo().then(function () {
+          return _this2.getIssue();
+        }).then(function (issue) {
+          return _this2.getComments(issue);
+        });
+      }
       return this.getIssue().then(function (issue) {
         return _this2.getComments(issue);
       });
@@ -3365,9 +3363,6 @@ var GitalkComponent = function (_Component) {
       var owner = this.options.owner;
 
       return _util.axiosGithub.get('/user', {
-        // headers: {
-        //   Authorization: `token ${this.accessToken}`
-        // }
         auth: {
           username: owner,
           password: '' + this.accessToken
@@ -10289,6 +10284,7 @@ Object.defineProperty(exports, "__esModule", {
 var GT_ACCESS_TOKEN = exports.GT_ACCESS_TOKEN = 'GT_ACCESS_TOKEN';
 var GT_VERSION = exports.GT_VERSION = "1.6.4"; // eslint-disable-line
 var GT_COMMENT = exports.GT_COMMENT = 'GT_COMMENT';
+var GT_USER = exports.GT_USER = 'GT_USER';
 
 /***/ }),
 /* 205 */
