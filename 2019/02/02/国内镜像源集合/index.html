@@ -192,15 +192,6 @@
 <a id="more"></a>
 <h3 id="NPM阿里镜像源"><a href="#NPM阿里镜像源" class="headerlink" title="NPM阿里镜像源"></a>NPM阿里镜像源</h3><p><a href="http://registry.npm.taobao.org" target="_blank" rel="noopener">http://registry.npm.taobao.org</a><br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry=&apos;http://registry.npm.taobao.org&apos;</span><br></pre></td></tr></table></figure></p>
 
-<div id="gitalk-container"></div>
-<script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script><link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"><script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-		<script>
-		var gitalkConfig = {"clientID":"a7df259dd175b6e97a18","clientSecret":"8763bdfbc37cda7ff668f08233948e466b2603b0","repo":"gitalk.css gitalk.js gitalk-component.js","owner":"FlyingPigQAQ","admin":["FlyingPigQAQ"],"distractionFreeMode":false};
-	    gitalkConfig.id = md5(location.pathname);
-		var gitalk = new Gitalk(gitalkConfig);
-	    gitalk.render("gitalk-container");
-	    </script>
         </div>
         
         <div class="level is-size-7 is-uppercase">
@@ -243,6 +234,34 @@
 </div>
 
 
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+    <div id="comment-container"></div>
+    <!--<link rel="stylesheet" href="/hexo-plugin-gitalk/dist/gitalk.css">-->
+    <!--<script src="/hexo-plugin-gitalk/dist/gitalk.js"></script>-->
+    <link rel="stylesheet" href="/gitalk/gitalk.css">
+    <script src="/gitalk/gitalk.js"></script>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: 'a7df259dd175b6e97a18',
+            clientSecret: '8763bdfbc37cda7ff668f08233948e466b2603b0',
+            repo: 'flyingpigqaq.github.io',
+            owner: 'FlyingPigQAQ',
+            admin: '"FlyingPigQAQ"',
+            id: '/2019/02/02/国内镜像源集合/',      // Ensure uniqueness and length less than 50
+            distractionFreeMode: 'false'  // Facebook-like distraction free mode
+        })
+
+
+        gitalk.render('comment-container')
+    </script>
+
+
+    </div>
+</div>
 </div>
                 
             </div>
