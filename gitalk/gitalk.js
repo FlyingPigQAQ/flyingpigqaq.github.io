@@ -6789,9 +6789,7 @@ var GitalkComponent = function (_Component) {
       }).then(function (res) {
         if (res.data && res.data.access_token) {
           _this.accessToken = res.data.access_token;
-          console.log('Github\u9A8C\u8BC1 ' + _this.accessToken);
-
-          _this.getInit().then(function () {
+          _this.getUserInfo().then(function () {
             return _this.setState({ isIniting: false });
           }).catch(function (err) {
             console.log('err:', err);
@@ -6856,8 +6854,6 @@ var GitalkComponent = function (_Component) {
 
       var owner = this.options.owner;
 
-      console.log(owner);
-      console.log('' + this.accessToken);
       return _util.axiosGithub.get('/user', {
         // headers: {
         //   Authorization: `token ${this.accessToken}`
