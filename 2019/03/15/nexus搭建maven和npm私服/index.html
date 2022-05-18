@@ -12,21 +12,21 @@
 <meta name="keywords" content="nexus,npm私服搭建,maven私服搭建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nexus搭建maven和npm私服">
-<meta property="og:url" content="https://www.pigcanflyqaq.com/2019/03/15/nexus搭建maven和npm私服/index.html">
+<meta property="og:url" content="http://www.pigcanflyqaq.com/2019/03/15/nexus搭建maven和npm私服/index.html">
 <meta property="og:site_name" content="想飞的猪猪">
 <meta property="og:description" content="Nexus Oss 安装配置文档Nexus Repository Manager OSS 3.x本文档基于oss3.x版本编写，包含maven私服和npm私服的配置 私服默认账户admin/admin123 一、Maven私服搭建1. 配置用户权限（网页操作）2. 配置settings.xml">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.pigcanflyqaq.com/img/nexus-1.png">
-<meta property="og:image" content="https://www.pigcanflyqaq.com/img/nexus-2.jpg">
-<meta property="og:image" content="https://www.pigcanflyqaq.com/img/nexus-3.png">
-<meta property="og:image" content="https://www.pigcanflyqaq.com/img/nexus-4.png">
-<meta property="og:image" content="https://www.pigcanflyqaq.com/img/nexus-5.png">
-<meta property="og:image" content="https://www.pigcanflyqaq.com/img/nexus-7.png">
+<meta property="og:image" content="http://www.pigcanflyqaq.com/img/nexus-1.png">
+<meta property="og:image" content="http://www.pigcanflyqaq.com/img/nexus-2.jpg">
+<meta property="og:image" content="http://www.pigcanflyqaq.com/img/nexus-3.png">
+<meta property="og:image" content="http://www.pigcanflyqaq.com/img/nexus-4.png">
+<meta property="og:image" content="http://www.pigcanflyqaq.com/img/nexus-5.png">
+<meta property="og:image" content="http://www.pigcanflyqaq.com/img/nexus-7.png">
 <meta property="og:updated_time" content="2019-03-27T03:06:10.952Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nexus搭建maven和npm私服">
 <meta name="twitter:description" content="Nexus Oss 安装配置文档Nexus Repository Manager OSS 3.x本文档基于oss3.x版本编写，包含maven私服和npm私服的配置 私服默认账户admin/admin123 一、Maven私服搭建1. 配置用户权限（网页操作）2. 配置settings.xml">
-<meta name="twitter:image" content="https://www.pigcanflyqaq.com/img/nexus-1.png">
+<meta name="twitter:image" content="http://www.pigcanflyqaq.com/img/nexus-1.png">
 
 
 
@@ -201,7 +201,7 @@
 <h4 id="3-上传依赖到远程代码库"><a href="#3-上传依赖到远程代码库" class="headerlink" title="3. 上传依赖到远程代码库"></a>3. 上传依赖到远程代码库</h4><blockquote>
 <p>注意：<strong>不能将jar文件或者pom文件指定为本地代码仓库的文件，否则会报错Cannot deploy artifact from the local repository。具体原因待查</strong>  </p>
 </blockquote>
-<h5 id="上传单个依赖到远程代码库"><a href="#上传单个依赖到远程代码库" class="headerlink" title="- 上传单个依赖到远程代码库"></a>- 上传单个依赖到远程代码库</h5><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span>第一种方式</span><br><span class="line">mvn deploy:deploy-file -DgroupId=mysql   -DartifactId=mysql-connector-java   -Dversion=5.1.45   -Dpackaging=jar   -Dfile=/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.jar   -DrepositoryId=sinosoft   -Durl=http://10.1.105.169:8081/repository/maven-releases/</span><br><span class="line"><span class="hljs-meta">#</span>第二种方式</span><br><span class="line">mvn deploy:deploy-file -Durl=http://10.1.105.169:8081/repository/maven-releases/ -Dfile="/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.jar" -DgeneratePom=false -DpomFile="/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.pom"</span><br></pre></td></tr></table></figure>
+<h5 id="上传单个依赖到远程代码库"><a href="#上传单个依赖到远程代码库" class="headerlink" title="- 上传单个依赖到远程代码库"></a>- 上传单个依赖到远程代码库</h5><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">第一种方式</span></span><br><span class="line">mvn deploy:deploy-file -DgroupId=mysql   -DartifactId=mysql-connector-java   -Dversion=5.1.45   -Dpackaging=jar   -Dfile=/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.jar   -DrepositoryId=sinosoft   -Durl=http://10.1.105.169:8081/repository/maven-releases/</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash">第二种方式</span></span><br><span class="line">mvn deploy:deploy-file -Durl=http://10.1.105.169:8081/repository/maven-releases/ -Dfile="/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.jar" -DgeneratePom=false -DpomFile="/Users/tobbyquinn/Desktop/mysql-connector-java-5.1.45.pom"</span><br></pre></td></tr></table></figure>
 <p><font color="blue"><strong>一定记住：url一定要为maven-relases或maven-snapshot,不能为group组如maven-central，否则报错 HTTP.405,PUT method not allowed </strong></font></p>
 <h5 id="上传工程所有依赖到本地代码库"><a href="#上传工程所有依赖到本地代码库" class="headerlink" title="- 上传工程所有依赖到本地代码库"></a>- 上传工程所有依赖到本地代码库</h5><ol>
 <li>导出pom的所有依赖  </li>
