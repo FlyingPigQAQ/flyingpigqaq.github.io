@@ -1,38 +1,12 @@
 ---
-title: Hello World
+title: "GoGoGo"
+date: 2019-02-02T12:00:45.000Z
+categories:
+  - 新的开始
+tags:
+  - 个人随语
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-## Quick Start
+### 新的征程，新的开始
 
-### Create a new post
-
-``` bash
-$ hexo new "My New Post"
-```
-
-More info: [Writing](https://hexo.io/docs/writing.html)
-
-### Run server
-
-``` bash
-$ hexo server
-```
-
-More info: [Server](https://hexo.io/docs/server.html)
-
-### Generate static files
-
-``` bash
-$ hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+2019年，又是新的一年。拖拖踏踏了好久的博客终于被我磨磨唧唧的弄出来了。想说的很多，却习惯性的语塞，就像我遇到喜欢的女孩子不敢表白一样。扯远了…新年一般是需要立flag的，那就是先把手头的书给看完，然后工资最起码翻个翻，哈哈哈。
