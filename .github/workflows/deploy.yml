@@ -1,0 +1,40 @@
+name: Deploy Hexo to GitHub Pages
+
+on:
+  push:
+    branches: [source]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install and generate
+        run: |
+          npm ci
+          npx hexo generate
+
+      - name: Publish public/ to master
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: master
+          force_orphan: true
+          cname: blog.pigcanfly.top
