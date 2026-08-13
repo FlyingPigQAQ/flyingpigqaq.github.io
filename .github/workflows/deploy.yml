@@ -4,6 +4,9 @@ on:
   push:
     branches: [source]
   workflow_dispatch:
+  schedule:
+    # 每周四 01:00 UTC（北京时间 09:00），避开 Loyalsoldier/geoip 约 00:25 UTC 的日常发布
+    - cron: '0 1 * * 4'
 
 permissions:
   contents: write
@@ -18,6 +21,14 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
+
+      - name: Download latest Country.mmdb
+        run: |
+          mkdir -p source/static
+          curl -fsSL -o source/static/country.mmdb \
+            'https://github.com/Loyalsoldier/geoip/releases/latest/download/Country.mmdb'
+          test -s source/static/country.mmdb
+          ls -lh source/static/country.mmdb
 
       - name: Setup Node
         uses: actions/setup-node@v4
