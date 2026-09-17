@@ -1,0 +1,905 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="FlyingPigQAQ">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Top命令是系统性能监控和瓶颈分析的优秀工具。本节内容着重讲述top命令面板和一些常用的参数。最后欢迎大家在评论区积极维护补充。  系统信息摘要12345678910111213141516171819202122232425262728293031#system time#uptime          #user sessions#load average:系统平均负载，必须等待完成任务的的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Top命令参考指南">
+<meta property="og:url" content="https://blog.pigcanfly.top/2019/02/25/Top%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="想飞的猪猪">
+<meta property="og:description" content="Top命令是系统性能监控和瓶颈分析的优秀工具。本节内容着重讲述top命令面板和一些常用的参数。最后欢迎大家在评论区积极维护补充。  系统信息摘要12345678910111213141516171819202122232425262728293031#system time#uptime          #user sessions#load average:系统平均负载，必须等待完成任务的的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-02-25T21:38:05.000Z">
+<meta property="article:modified_time" content="2026-09-17T05:42:11.975Z">
+<meta property="article:author" content="FlyingPigQAQ">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Shell">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Top命令参考指南 - 想飞的猪猪</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.pigcanfly.top","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>想飞的猪猪</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>首页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/tags/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-tags-fill"></i>
+                  <span>标签</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Top命令参考指南"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-02-26 05:38" pubdate>
+          2019年2月26日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          24 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Top命令参考指南</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>Top命令是系统性能监控和瓶颈分析的优秀工具。<br>本节内容着重讲述top命令面板和一些常用的参数。<br>最后欢迎大家在评论区积极维护补充。</p>
+</blockquote>
+<h3 id="系统信息摘要"><a href="#系统信息摘要" class="headerlink" title="系统信息摘要"></a>系统信息摘要</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#system time</span><br><span class="hljs-comment">#uptime          </span><br><span class="hljs-comment">#user sessions</span><br><span class="hljs-comment">#load average:系统平均负载，必须等待完成任务的的时间的相对度量。（1分钟,5分钟,15分钟）。负载为处在任何时刻Runnable状态和Uninterruptible sleep状态的进程数。</span><br><span class="hljs-comment">#如何理解：在单核系统上，平均负载为0.4意味着系统只能完成60％的工作。平均负载为1意味着系统完全处于容量状态 。负载平均值为2.12的系统意味着它的负载超过其处理的112％。</span><br><br>在多核系统上，您应首先将负载平均值除以CPU核心数，以获得类似的度量。<br>top - 13:46:25 up 28 days,  2:40,  1 user,  load average: 0.00, 0.01, 0.05<br><span class="hljs-comment">#buff/cache:Linux内核总在尝试减少磁盘访问时间，它在RAM中维护一个“磁盘缓存”，其中存储了磁盘的常用区域 #此外，磁盘写入存储到“磁盘缓冲区”，内核最终将它们写入磁盘。它们消耗的总内存是“buff/cache”值。但需要注意的是，在必要的时候，该值会优先分配给要使用的进程</span><br>KiB Mem :  1882760 total,    64860 free,   840544 used,   977356 buff/cache<br><span class="hljs-comment">#swap使用硬盘空间，当内存使用率接近100%的时候，最低使用率的内存区域会被写入到swap空间，但注意</span><br><span class="hljs-comment">#依赖太多交换空间会影响系统性能</span><br><br><span class="hljs-comment"># &#x27;avail mem&#x27;：可以被分配给进程的数值，同时不会造成更多的swap</span><br>KiB Swap:  2097148 total,  2097148 free,        0 used.   839960 avail Mem<br><span class="hljs-comment"># total:内核中进程总数</span><br><span class="hljs-comment">#runnable:进程处于该状态表明：要么在cpu上执行，要么在运行队列上等待被执行</span><br><span class="hljs-comment">#Interruptible sleep：等待事件完成</span><br><span class="hljs-comment">#Uninterruptible sleep：等待IO操作完成</span><br><span class="hljs-comment">#Zobie：内核在内存中维护各种数据结构以跟踪进程。 一个进程可能会创建许多子进程，并且它们可能会在父进程仍然存在时退出。 但是，必须保留这些数据结构，直到父级获取子进程的状态。 数据结构仍然存在的这种终止进程称</span><br><span class="hljs-comment">#为僵尸。</span><br>Tasks:  95 total,   1 running,  94 sleeping,   0 stopped,   0 zombie<br><span class="hljs-comment">#us:the time is cpu spends executing processes in userspace(cpu在用户空间执行进程花费时间)</span><br><span class="hljs-comment">#sy:the time spent on running kernalspace processes(cpu运行系统进程花费时间--内核空间)</span><br><span class="hljs-comment">#ni:手动设置进程nice值花费的时间。每个进程的nice值的大小决定其优先级的高低。nice值越高，优先级越低。</span><br><span class="hljs-comment">#id：idlecpu保持空闲时间</span><br><span class="hljs-comment">#wa:waitcpu等待io完成耗费时间</span><br><span class="hljs-comment">#hi:hardware interrupts.系统处理硬件中断事件(按压键盘的事件中断)花费时间</span><br><span class="hljs-comment">#si:software interrupts.系统处理软件中断花费时间</span><br><span class="hljs-comment">#st:在虚拟化环境中，部分cpu资源被分配给各个虚拟机。当系统检测到有任务需要执行，但cpu因为忙于其他vm而无法执行所耗费的时间为‘st’</span><br>%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 <span class="hljs-built_in">id</span>,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#在单核系统中意味着：</span><br><span class="hljs-comment">#CPU 被充分利用（100%）；最近的 1 分钟有 1 个进程在运行。</span><br><span class="hljs-comment">#CPU 有 60% 处于空闲状态；在最近的 5 分钟没有进程等待 CPU 时间。</span><br><span class="hljs-comment">#CPU 平均过载了 235%；最近的 15 分钟平均有 2.35 个进程在等待 CPU 时间。</span><br><span class="hljs-comment">#在双核系统中意味着：</span><br><span class="hljs-comment">#有一个 CPU 处于完全空闲状态，另一个 CPU 被使用；最近的 1 分钟没有进程等待 CPU 时间。</span><br><span class="hljs-comment">#CPU 平均 160% 处于空闲状态；最近的 5 分钟没有进程等待 CPU 时间。</span><br><span class="hljs-comment">#CPU 平均过载了 135%；最近的 15 分钟有 1.35 个进程等待 CPU 时间。</span><br>23:16:49 up  10:49,  5 user,  load average: 1.00, 0.40, 3.35<br></code></pre></td></tr></table></figure>
+
+<h3 id="进程任务区域"><a href="#进程任务区域" class="headerlink" title="进程任务区域"></a>进程任务区域</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash">PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND<br><span class="hljs-comment">#PID:进程id</span><br><span class="hljs-comment">#USER:有效用户。Linux为进程分配真实用户和有效用户。后者允许进程代表另一个用户行事。（例如：非root用户可以sudo到root来安装程序包）</span><br><span class="hljs-comment">#NI：显示进程‘nice’值</span><br><span class="hljs-comment">#PR：内核角度显示进程的调度优先级。‘nice’值影响响应进程的优先级</span><br><span class="hljs-comment">#VIRT:进程消耗的内存总量。包括：程序代码，进程在内存中存储的数据以及已交换到磁盘的swap内存区域。</span><br><span class="hljs-comment">#RES:进程在RAM中消耗的内存</span><br><span class="hljs-comment">#%MEM:RES/可用RAM总量</span><br><span class="hljs-comment">#SHR:进程与其他进程共享的内存量</span><br><span class="hljs-comment">#S:process status。</span><br><span class="hljs-comment">##D = uninterruptible sleep</span><br><span class="hljs-comment">##R = running</span><br><span class="hljs-comment">##S = sleeping</span><br><span class="hljs-comment">##T = stopped by job control signal</span><br><span class="hljs-comment">##t = stopped by debugger during trace</span><br><span class="hljs-comment">##Z = zombie</span><br><span class="hljs-comment">#Time+：进程自启动以来使用的cpu时间</span><br><span class="hljs-comment">#Command:显示进程名称</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="用法（单引号中的内容需要键入）"><a href="#用法（单引号中的内容需要键入）" class="headerlink" title="用法（单引号中的内容需要键入）"></a>用法（<code>单引号中的内容需要键入</code>）</h3><ol>
+<li><p>杀死进程</p>
+<ul>
+<li>(触发k) 先输入要杀死的pid,再输入相关信号的整型值</li>
+</ul>
+</li>
+<li><p>进程列表排序</p>
+<ul>
+<li><p>‘M’ 根据内存使用情况排序</p>
+</li>
+<li><p>‘P’ cpu使用情况排序</p>
+</li>
+<li><p>‘N’ pid排序</p>
+</li>
+<li><p>‘T’ 运行时间排序</p>
+<blockquote>
+<p>默认为降序排序，‘R’可以改为升序<br>Example: top -o %cpu;</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>各个进程的线程总数</p>
+<ul>
+<li><p>‘H’ 显示线程摘要信息</p>
+<blockquote>
+<p>Threads: 222 total, 1 running, 221 sleeping, 0 stopped, 0 zombie</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>查看指定进程的线程信息</p>
+<ul>
+<li>top -Hp PID</li>
+</ul>
+</li>
+<li><p>COMMAND显示完整路径</p>
+<ul>
+<li><p>‘c’</p>
+<blockquote>
+<p>top -c</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>查看子进程的父级层次结构</p>
+<ul>
+<li>‘V’：Forest view</li>
+</ul>
+</li>
+<li><p>查看某个用户下的进程列表</p>
+<ul>
+<li><p>‘u’-&gt;’USER’</p>
+<blockquote>
+<p>top -u USER</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>进程信息过滤</p>
+<ul>
+<li>‘O’:开启过滤模式(区分大小写)<ul>
+<li>COMMAND&#x3D;java:进程COMMAND一栏包含java属性</li>
+<li>!COMMAND&#x3D;java:进程COMMAND一栏不包含java属性</li>
+<li>%CPU&gt;3.0:cpu使用率大于3%</li>
+</ul>
+</li>
+<li>过滤条件可以叠加</li>
+<li>‘&#x3D;’:清除过滤信息</li>
+</ul>
+</li>
+<li><p>保存当前top输出</p>
+<ul>
+<li>‘W’:路径通常为~&#x2F;.toprc</li>
+</ul>
+</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>如果想要查看更详细的信息，<code>man top</code>了解下。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux%E5%8F%82%E8%80%83%E6%8C%87%E5%8D%97/" class="category-chain-item">Linux参考指南</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+      
+        <a href="/tags/Shell/" class="print-no-link">#Shell</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Top命令参考指南</div>
+      <div>https://blog.pigcanfly.top/2019/02/25/Top命令参考指南/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>FlyingPigQAQ</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2019年2月26日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/03/14/nexus%E6%90%AD%E5%BB%BAmaven%E5%92%8Cnpm%E7%A7%81%E6%9C%8D/" title="nexus搭建maven和npm私服">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">nexus搭建maven和npm私服</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/02/02/%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90%E9%9B%86%E5%90%88/" title="国内镜像源集合">
+                        <span class="hidden-mobile">国内镜像源集合</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
