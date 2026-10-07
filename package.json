@@ -26,7 +26,7 @@
     "hexo-theme-landscape": "^1.0.0"
   },
   "devDependencies": {
-    "jsdom": "^30.0.1",
+    "jsdom": "^30.1.2",
     "turndown": "^7.2.4"
   }
 }
